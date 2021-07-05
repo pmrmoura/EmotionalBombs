@@ -6,6 +6,9 @@
 
 # EmotionalBombs
 
+[LOGO]
+
+
 
 <!-- PROJECT LOGO -->
 <!-- <br />
@@ -45,6 +48,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+Comming in soon...
 <!-- 
 <img src="assets/Concluiu%20o%20jogo.png" alt="Logo" width="187.5" height="406"> <img src="assets/Mapa.png" alt="Logo" width="187.5" height="406">
 <img src="assets/Menu%20de%20Status%201.png" alt="Logo" width="187.5" height="406">
@@ -92,15 +97,15 @@ git pull develop
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/pmrmoura/Tear.svg?style=flat-square
-[contributors-url]: https://img.shields.io/github/contributors/pmrmoura/Tear
+[contributors-shield]: https://img.shields.io/github/contributors/pmrmoura/EmotionalBombs.svg?style=flat-square
+[contributors-url]: https://img.shields.io/github/contributors/pmrmoura/EmotionalBombs
 
-[forks-shield]: https://img.shields.io/github/forks/pmrmoura/Tear.svg?style=flat-square
-[forks-url]: https://img.shields.io/github/forks/pmrmoura/Tear
-[commits-shield]: https://img.shields.io/github/last-commit/pmrmoura/Tear.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/pmrmoura/EmotionalBombs.svg?style=flat-square
+[forks-url]: https://img.shields.io/github/forks/pmrmoura/EmotionalBombs
+[commits-shield]: https://img.shields.io/github/last-commit/pmrmoura/EmotionalBombs.svg?style=flat-square
 [commits-url]: https://img.shields.io/github/last-commit/pmrmoura/Tear
-[stars-shield]: https://img.shields.io/github/stars/pmrmoura/Tear.svg?style=flat-square
-[stars-url]: https://img.shields.io/github/starts/pmrmoura/Tear
-[issues-shield]: https://img.shields.io/github/issues/pmrmoura/Tear.svg?style=flat-square
-[issues-url]: https://img.shields.io/github/issues/pmrmoura/Tear
-[product-screenshot]: images/screenshot.png
+[stars-shield]: https://img.shields.io/github/stars/pmrmoura/EmotionalBombs.svg?style=flat-square
+[stars-url]: https://img.shields.io/github/starts/pmrmoura/EmotionalBombs
+[issues-shield]: https://img.shields.io/github/issues/pmrmoura/EmotionalBombs.svg?style=flat-square
+[issues-url]: https://img.shields.io/github/issues/pmrmoura/EmotionalBombs
+<!-- [product-screenshot]: images/screenshot.png -->
