@@ -35,6 +35,7 @@
  -->
 
 
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
@@ -94,6 +95,13 @@ git pull develop
 
 - Brief notes on how to check if the feature works correctly.
 ```
+
+
+## LICENSE
+Could you read here in [this page of the app](https://github.com/pmrmoura/EmotionalBombs/blob/main/LICENSE)
+
+## Policy Privacy
+Could you read here in [this page of the app](https://sites.google.com/cin.ufpe.br/emotionalbombs/privacy-policy?authuser=1)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
