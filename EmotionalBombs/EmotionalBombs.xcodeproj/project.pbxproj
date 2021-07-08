@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2824C45326973B02002C70EB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824C45226973B02002C70EB /* Player.swift */; };
 		2857C4D426971B3A00856AA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2857C4D326971B3A00856AA5 /* AppDelegate.swift */; };
 		2857C4D626971B3A00856AA5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2857C4D526971B3A00856AA5 /* GameScene.sks */; };
 		2857C4D826971B3A00856AA5 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2857C4D726971B3A00856AA5 /* Actions.sks */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2824C45226973B02002C70EB /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2857C4D026971B3A00856AA5 /* EmotionalBombs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionalBombs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2857C4D326971B3A00856AA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2857C4D526971B3A00856AA5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2824C45126973AC0002C70EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2824C45226973B02002C70EB /* Player.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2857C4C726971B3A00856AA5 = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +68,33 @@
 		2857C4D226971B3A00856AA5 /* EmotionalBombs */ = {
 			isa = PBXGroup;
 			children = (
+				2824C45126973AC0002C70EB /* Model */,
+				2857C4EB269731C400856AA5 /* View */,
+				2857C4EA269731A000856AA5 /* Controller */,
 				2857C4D326971B3A00856AA5 /* AppDelegate.swift */,
-				2857C4D526971B3A00856AA5 /* GameScene.sks */,
-				2857C4D726971B3A00856AA5 /* Actions.sks */,
-				2857C4D926971B3A00856AA5 /* GameScene.swift */,
-				2857C4DB26971B3A00856AA5 /* GameViewController.swift */,
-				2857C4DD26971B3A00856AA5 /* Main.storyboard */,
 				2857C4E026971B3B00856AA5 /* Assets.xcassets */,
 				2857C4E226971B3B00856AA5 /* Info.plist */,
 			);
 			path = EmotionalBombs;
+			sourceTree = "<group>";
+		};
+		2857C4EA269731A000856AA5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2857C4DB26971B3A00856AA5 /* GameViewController.swift */,
+				2857C4D926971B3A00856AA5 /* GameScene.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2857C4EB269731C400856AA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2857C4D726971B3A00856AA5 /* Actions.sks */,
+				2857C4DD26971B3A00856AA5 /* Main.storyboard */,
+				2857C4D526971B3A00856AA5 /* GameScene.sks */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2824C45326973B02002C70EB /* Player.swift in Sources */,
 				2857C4DA26971B3A00856AA5 /* GameScene.swift in Sources */,
 				2857C4DC26971B3A00856AA5 /* GameViewController.swift in Sources */,
 				2857C4D426971B3A00856AA5 /* AppDelegate.swift in Sources */,
@@ -292,7 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -311,7 +339,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
