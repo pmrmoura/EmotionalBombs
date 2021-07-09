@@ -16,16 +16,23 @@ import GameplayKit
 class GameScene: SKScene {
     
     var player = Player(body:nil)
+    var background = SKSpriteNode()
     override func didMove(to view: SKView) {
         print("Scene loaded")
         
-        self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -5)
+        self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
         
+        if let background = self.scene?.childNode(withName: "backGround"){
+            self.background = background as! SKSpriteNode
+            let act = SKAction.colorize(with: UIColor.black, colorBlendFactor: 1, duration: 5)
+            self.background.run(act)
+        }
         if let playerBody = self.scene?.childNode(withName: "player") as? SKSpriteNode{
             player = Player(body: playerBody)
         }
         if let camera = self.scene?.childNode(withName: "camera") as? SKCameraNode{
             self.camera = camera
+
         }
     }
     
@@ -34,13 +41,15 @@ class GameScene: SKScene {
         if direction == .right{
             print("Move to the right")
             player.moveTo(direction: .right)
-            let moveRight = SKAction.move(by: CGVector(dx: 10, dy: 0), duration: 0.2)
+            let moveRight = SKAction.move(by: CGVector(dx: 100, dy: 0), duration: 0.2)
             let repeatMove = SKAction.repeatForever(moveRight)
             self.camera?.run(repeatMove, withKey: "move")
+            let act = SKAction.colorize(with: UIColor.white, colorBlendFactor: 1, duration: 5)
+            self.background.run(act)
         }else if direction == .left{
             print("Move to the left")
             player.moveTo(direction: .left)
-            let moveLeft = SKAction.move(by: CGVector(dx: -10, dy: 0), duration: 0.2)
+            let moveLeft = SKAction.move(by: CGVector(dx: -100, dy: 0), duration: 0.2)
             let repeatMove = SKAction.repeatForever(moveLeft)
             self.camera?.run(repeatMove, withKey: "move")
         }else if direction == .up{
