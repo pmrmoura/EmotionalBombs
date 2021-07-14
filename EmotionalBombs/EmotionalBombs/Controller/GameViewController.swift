@@ -36,6 +36,7 @@ class GameViewController: UIViewController {
                 view.addGestureRecognizer(upSwipe)
                 view.addGestureRecognizer(longPressGesture)
                 view.presentScene(gameSecene)
+                view.ignoresSiblingOrder = false
                 self.view = view
             }
         }
