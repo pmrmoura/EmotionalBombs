@@ -16,45 +16,61 @@ import GameplayKit
 class GameScene: SKScene {
     
     var player = Player(body:nil)
-    override func didMove(to view: SKView) {
+    var background = SKSpriteNode()
+    var readyToUpdate = false
+    
+    override func didMove(to view: SKView){
         print("Scene loaded")
+        player.isUserInteractionEnabled = true
+        self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
         
-        self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -5)
-        
+        if let background = self.scene?.childNode(withName: "backGround"){
+            self.background = background as! SKSpriteNode
+        }
         if let playerBody = self.scene?.childNode(withName: "player") as? SKSpriteNode{
             player = Player(body: playerBody)
         }
         if let camera = self.scene?.childNode(withName: "camera") as? SKCameraNode{
             self.camera = camera
+            
         }
     }
+     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if let firstTouch = touches.first{
+            print("touch began at \(firstTouch.location(in: self.scene!))")
+        }
+    }
+    func hitValidation(postion:CGPoint){
+        print("hitValidation received \(position)")
+    }
+    override func update(_ currentTime: TimeInterval){
+        self.camera?.position.x = (player.body?.position.x)!
+    }
+}
+
+
+//Moviment extension
+extension GameScene{
     
     public func moveInDirection(direction:MoveDirection){
         
         if direction == .right{
             print("Move to the right")
             player.moveTo(direction: .right)
-            let moveRight = SKAction.move(by: CGVector(dx: 10, dy: 0), duration: 0.2)
-            let repeatMove = SKAction.repeatForever(moveRight)
-            self.camera?.run(repeatMove, withKey: "move")
         }else if direction == .left{
             print("Move to the left")
             player.moveTo(direction: .left)
-            let moveLeft = SKAction.move(by: CGVector(dx: -10, dy: 0), duration: 0.2)
-            let repeatMove = SKAction.repeatForever(moveLeft)
-            self.camera?.run(repeatMove, withKey: "move")
         }else if direction == .up{
             print("jump")
             player.moveTo(direction: .up)
         }
+        
     }
     
     public func stopMove(){
         print("Stop move")
         player.stopMove()
-        self.camera?.removeAction(forKey: "move")
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
     }
 }

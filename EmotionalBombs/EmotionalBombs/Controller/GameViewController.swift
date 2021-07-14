@@ -24,6 +24,7 @@ class GameViewController: UIViewController {
                 let rightSwipe = UISwipeGestureRecognizer(target: self, action:#selector(swipeHandler(_:)))
                 let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
                 let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
+                let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressHandler(_:)))
                 rightSwipe.direction = .right
                 rightSwipe.cancelsTouchesInView = false
                 leftSwipe.direction = .left
@@ -33,8 +34,21 @@ class GameViewController: UIViewController {
                 view.addGestureRecognizer(rightSwipe)
                 view.addGestureRecognizer(leftSwipe)
                 view.addGestureRecognizer(upSwipe)
+                view.addGestureRecognizer(longPressGesture)
                 view.presentScene(gameSecene)
+                self.view = view
             }
+        }
+    }
+    
+    @objc func longPressHandler(_ sender:UILongPressGestureRecognizer){
+        print("Long press detected")
+        if sender.state == .began{
+            print("Do something in the GameSecene")
+            let location = sender.location(in: self.view)
+            let sceneCoordinates = gameSecene.convertPoint(fromView: location)
+            print("Sending coordinates \(sceneCoordinates)")
+            gameSecene.hitValidation(postion: sceneCoordinates)
         }
     }
     
