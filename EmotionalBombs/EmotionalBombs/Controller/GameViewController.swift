@@ -48,7 +48,7 @@ class GameViewController: UIViewController {
             let location = sender.location(in: self.view)
             let sceneCoordinates = gameSecene.convertPoint(fromView: location)
             print("Sending coordinates \(sceneCoordinates)")
-            gameSecene.hitValidation(postion: sceneCoordinates)
+            gameSecene.hitValidation(location:sceneCoordinates)
         }
     }
     

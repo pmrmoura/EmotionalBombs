@@ -42,8 +42,24 @@ class GameScene: SKScene {
             print("touch began at \(firstTouch.location(in: self.scene!))")
         }
     }
-    func hitValidation(postion:CGPoint){
-        print("hitValidation received \(position)")
+    
+    func hitValidation(location:CGPoint){
+        print("hitValidation received \(location)")
+        if let nodes = self.scene?.nodes(at: location){
+            for node in nodes{
+                if node.name! == "moveble"{
+                    let joint = SKPhysicsJointFixed.joint(withBodyA: player.body!.physicsBody!, bodyB: node.physicsBody!, anchor: CGPoint(x: player.position.x, y: player.position.y))
+                    self.physicsWorld.add(joint)
+                    node.physicsBody?.isDynamic = true
+                    node.physicsBody?.affectedByGravity = true
+                    //node.physicsBody?.applyImpulse(CGVector(dx: 150, dy: 0))
+//                    node.removeFromParent()
+//                    player.body?.addChild(node)
+//                    node.position = player.body!.position
+                    print("meme")
+                }
+            }
+        }
     }
     override func update(_ currentTime: TimeInterval){
         self.camera?.position.x = (player.body?.position.x)!
