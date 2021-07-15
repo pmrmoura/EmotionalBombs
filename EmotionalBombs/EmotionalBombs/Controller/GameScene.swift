@@ -49,8 +49,10 @@ class GameScene: SKScene {
             for node in nodes{
                 if node.name! == "moveble"{
                     node.physicsBody?.isDynamic = true
-                    node.move(toParent: player.body!)
-                    print("meme")
+                    node.physicsBody?.affectedByGravity = true
+                    let jt = SKPhysicsJointLimit.joint(withBodyA: (player.body?.physicsBody)!, bodyB: node.physicsBody!, anchorA: player.body!.position, anchorB: node.position)
+                    self.scene?.physicsWorld.add(jt)
+                    print("Joint added")
                 }
             }
         }
