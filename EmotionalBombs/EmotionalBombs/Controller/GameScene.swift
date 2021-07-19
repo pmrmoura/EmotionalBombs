@@ -37,32 +37,25 @@ class GameScene: SKScene {
             
         }
     }
-     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        if let firstTouch = touches.first{
-            print("touch began at \(firstTouch.location(in: self.scene!))")
-        }
-    }
     
     func hitValidation(location:CGPoint){
-        print("hitValidation received \(location)")
+        
         if let nodes = self.scene?.nodes(at: location){
             for node in nodes{
-                if !jointHappened{
-                    if node.name! == "moveble"{ //tem que generalizar aqui depois
+                if node.name! == "moveble"{
+                    if !jointHappened{
                         node.physicsBody?.isDynamic = true
                         node.physicsBody?.affectedByGravity = true
                         jt = SKPhysicsJointLimit.joint(withBodyA: (player.body?.physicsBody)!, bodyB: node.physicsBody!, anchorA: player.body!.position, anchorB: node.position)
                         self.scene?.physicsWorld.add(jt!)
                         print("Joint added")
                     }
-                }
-                if jointHappened{
-                    node.physicsBody?.isDynamic = false
-                    node.physicsBody?.affectedByGravity = false
-                    self.scene?.physicsWorld.remove(jt!)
-                    print("Joint removed")
+                    if jointHappened{
+                        node.physicsBody?.isDynamic = false
+                        node.physicsBody?.affectedByGravity = false
+                        self.scene?.physicsWorld.remove(jt!)
+                        print("Joint removed")
+                    }
                 }
                 self.jointHappened.toggle()
             }
@@ -95,5 +88,10 @@ extension GameScene{
     public func stopMove(){
         print("Stop move")
         player.stopMove()
+        if let node = self.scene?.childNode(withName: "moveble"){
+            print("moveble está na cena \(node.position)")
+        }else{
+            print("n estah na cena")
+        }
     }
 }
