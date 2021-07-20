@@ -10,13 +10,18 @@ import SpriteKit
 
 class Player:SKNode{
     var body:SKSpriteNode?
+    var walkingFrames: [SKTexture]
     
-    init(body:SKSpriteNode?) {
+    init(body:SKSpriteNode?, walkingFrames:[SKTexture]  ) {
+        self.walkingFrames = []
+        self.body = body
         super.init()
-        self.body=body
+       
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
+        self.walkingFrames = []
         super.init()
         fatalError("init(coder:) has not been implemented")
     }
@@ -38,5 +43,21 @@ class Player:SKNode{
     
     func stopMove(){
         self.body?.removeAction(forKey: "move")
+        self.body?.removeAction(forKey: "walkingInPlacePlayer")
+    }
+    
+     func buildAnimationWalkingRight(){
+        for i in 0...11 { //numImages
+            self.walkingFrames.append(SKTexture(imageNamed: "Composição 1_0000\(i)"))
+        }
+    }
+        
+     func animatePlayer() {
+        self.body?.run(SKAction.repeatForever(
+                    SKAction.animate(with: walkingFrames,
+                                     timePerFrame: 0.1,
+                                     resize: false,
+                                     restore: true)),
+                   withKey:"walkingInPlacePlayer")
     }
 }

@@ -11,15 +11,18 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     var gameSecene = GameScene()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
+            
             if let scene = SKScene(fileNamed: "GameScene") as? GameScene{
                 // Set the scale mode to scale to fit the window
                 gameSecene = scene
                 gameSecene.scaleMode = .aspectFill
+                
                 // Present the scene
                 let rightSwipe = UISwipeGestureRecognizer(target: self, action:#selector(swipeHandler(_:)))
                 let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
@@ -70,6 +73,7 @@ class GameViewController: UIViewController {
         print("Touch ended")
         gameSecene.stopMove()
     }
+   
     override var shouldAutorotate: Bool {
         return true
     }

@@ -15,7 +15,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var player = Player(body:nil)
+    var player = Player(body:nil, walkingFrames: [])
     var background = SKSpriteNode()
     var readyToUpdate = false
     var jointHappened = false
@@ -30,14 +30,16 @@ class GameScene: SKScene {
             self.background = background as! SKSpriteNode
         }
         if let playerBody = self.scene?.childNode(withName: "player") as? SKSpriteNode{
-            player = Player(body: playerBody)
+            player = Player(body: playerBody, walkingFrames: [])
         }
+        player.buildAnimationWalkingRight()
+        
         if let camera = self.scene?.childNode(withName: "camera") as? SKCameraNode{
             self.camera = camera
-            
         }
     }
-    
+  
+
     func hitValidation(location:CGPoint){
         
         if let nodes = self.scene?.nodes(at: location){
@@ -61,6 +63,7 @@ class GameScene: SKScene {
             }
         }
     }
+    
     override func update(_ currentTime: TimeInterval){
         self.camera?.position.x = (player.body?.position.x)!
     }
@@ -75,13 +78,20 @@ extension GameScene{
         if direction == .right{
             print("Move to the right")
             player.moveTo(direction: .right)
+          
+            
         }else if direction == .left{
             print("Move to the left")
             player.moveTo(direction: .left)
+            
+            
         }else if direction == .up{
             print("jump")
             player.moveTo(direction: .up)
         }
+        
+        player.animatePlayer()
+        
         
     }
     
@@ -95,3 +105,4 @@ extension GameScene{
         }
     }
 }
+
