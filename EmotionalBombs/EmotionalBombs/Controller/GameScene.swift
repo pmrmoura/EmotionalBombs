@@ -15,8 +15,8 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var player = Player(body:nil)
     var background = SKSpriteNode(imageNamed: "background.jpg")
+    var player = Player(body:nil, walkingFrames: [])
     var readyToUpdate = false
     var jointHappened = false
     var jt: SKPhysicsJointLimit?
@@ -33,11 +33,12 @@ class GameScene: SKScene {
             self.background = background as! SKSpriteNode
         }
         if let playerBody = self.scene?.childNode(withName: "player") as? SKSpriteNode{
-            player = Player(body: playerBody)
+            player = Player(body: playerBody, walkingFrames: [])
         }
+        player.buildAnimationWalkingRight()
+        
         if let camera = self.scene?.childNode(withName: "camera") as? SKCameraNode{
             self.camera = camera
-            
         }
     }
     
@@ -53,16 +54,16 @@ class GameScene: SKScene {
     }
     
     func scrollBackground(){
-        self.enumerateChildNodes(withName: "background", using: ({
             (node, error) in
+        self.enumerateChildNodes(withName: "background", using: ({
             // 1
-            node.position.x -= 4
             print("node position x = \(node.position.x)")
+            node.position.x -= 4
             // 2
             if node.position.x < -(self.scene?.size.width)! {
                 node.position.x += (self.scene?.size.width)! * 3
-            }
          }))
+            }
     }
     
     func hitValidation(location:CGPoint){
@@ -90,6 +91,7 @@ class GameScene: SKScene {
             }
         }
     }
+    
     override func update(_ currentTime: TimeInterval){
         self.camera?.position.x = (player.body?.position.x)!
         if goingLeft && (player.body?.position.x)! <= 100 {
@@ -121,6 +123,9 @@ extension GameScene{
             player.moveTo(direction: .up)
         }
         
+        player.animatePlayer()
+        
+        
     }
     
     public func stopMove(){
@@ -146,3 +151,4 @@ extension GameScene{
 
     }
 }
+
