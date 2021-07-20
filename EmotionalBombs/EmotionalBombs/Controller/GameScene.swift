@@ -54,16 +54,16 @@ class GameScene: SKScene {
     }
     
     func scrollBackground(){
-            (node, error) in
         self.enumerateChildNodes(withName: "background", using: ({
+            (node, error) in
             // 1
-            print("node position x = \(node.position.x)")
             node.position.x -= 4
+            print("node position x = \(node.position.x)")
             // 2
             if node.position.x < -(self.scene?.size.width)! {
                 node.position.x += (self.scene?.size.width)! * 3
-         }))
             }
+        }))
     }
     
     func hitValidation(location:CGPoint){
