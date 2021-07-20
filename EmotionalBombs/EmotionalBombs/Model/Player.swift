@@ -47,8 +47,8 @@ class Player:SKNode{
     }
     
      func buildAnimationWalkingRight(){
-        for i in 0...11 { //numImages
-            self.walkingFrames.append(SKTexture(imageNamed: "Composição 1_0000\(i)"))
+        for i in 3...9 { //numImages
+            self.walkingFrames.append(SKTexture(imageNamed: "EspiritoGaiaAnimacao_0000\(i)"))
         }
     }
         
@@ -56,8 +56,8 @@ class Player:SKNode{
         self.body?.run(SKAction.repeatForever(
                     SKAction.animate(with: walkingFrames,
                                      timePerFrame: 0.1,
-                                     resize: false,
-                                     restore: true)),
+                                     resize: true,
+                                     restore: false)),
                    withKey:"walkingInPlacePlayer")
     }
 }

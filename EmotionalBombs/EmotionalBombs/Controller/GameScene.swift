@@ -108,15 +108,19 @@ extension GameScene{
     public func moveInDirection(direction:MoveDirection){
         
         if direction == .right{
+            player.body?.xScale = abs(player.body!.xScale) * 1.0
             print("Move to the right")
             player.moveTo(direction: .right)
             scrollBackground()
             goingLeft = false
+            
         }else if direction == .left{
+            player.body?.xScale = abs(player.body!.xScale) * -1.0
             if (player.body?.position.x)! >= 100 {
                 print("Move to the left", player.body?.position.x)
                 player.moveTo(direction: .left)
                 goingLeft = true
+            
             }
         }else if direction == .up{
             print("jump")
