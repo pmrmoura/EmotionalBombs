@@ -71,21 +71,11 @@ class GameScene: SKScene {
         if let nodes = self.scene?.nodes(at: location){
             for node in nodes{
                 if node.name! == "moveble"{
-                    if !jointHappened{
-                        node.physicsBody?.isDynamic = true
-                        node.physicsBody?.affectedByGravity = true
-                        jt = SKPhysicsJointLimit.joint(withBodyA: (player.body?.physicsBody)!, bodyB: node.physicsBody!, anchorA: player.body!.position, anchorB: node.position)
-                        self.scene?.physicsWorld.add(jt!)
-                        print("Joint added")
-                        self.jointHappened.toggle()
-                    }
-                    else {
-                        node.physicsBody?.isDynamic = false
-                        node.physicsBody?.affectedByGravity = false
-                        self.scene?.physicsWorld.remove(jt!)
-                        print("Joint removed")
-                        self.jointHappened.toggle()
-                    }
+                    moveBox(node: node)
+                }
+                else if node.name! == "bird"{
+                    print("bird pressed")
+                    SKAction
                 }
                 
             }
@@ -97,13 +87,30 @@ class GameScene: SKScene {
         if goingLeft && (player.body?.position.x)! <= 100 {
             player.stopMove()
         }
-        
     }
 }
 
 
-//Moviment extension
+//Player Moviment extension
 extension GameScene{
+    
+    func moveBox(node:SKNode){
+        if !jointHappened{
+            node.physicsBody?.isDynamic = true
+            node.physicsBody?.affectedByGravity = true
+            jt = SKPhysicsJointLimit.joint(withBodyA: (player.body?.physicsBody)!, bodyB: node.physicsBody!, anchorA: player.body!.position, anchorB: node.position)
+            self.scene?.physicsWorld.add(jt!)
+            print("Joint added")
+            self.jointHappened.toggle()
+        }
+        else {
+            node.physicsBody?.isDynamic = false
+            node.physicsBody?.affectedByGravity = false
+            self.scene?.physicsWorld.remove(jt!)
+            print("Joint removed")
+            self.jointHappened.toggle()
+        }
+    }
     
     public func moveInDirection(direction:MoveDirection){
         
@@ -120,7 +127,7 @@ extension GameScene{
                 print("Move to the left", player.body?.position.x)
                 player.moveTo(direction: .left)
                 goingLeft = true
-            
+                
             }
         }else if direction == .up{
             print("jump")
@@ -140,19 +147,6 @@ extension GameScene{
         }else{
             print("n estah na cena")
         }
-    }
-    
-    func animationMove() {
-        let sprites = ["walking.png", "fixed.png"]
-        var textures: [SKTexture] = []
-        
-        for i in 0...sprites.count {
-            textures.append(SKTexture(imageNamed: sprites[i]))
-        }
-        
-        let animation = SKAction.animate(with: textures, timePerFrame: 0.2)
-        player.run(SKAction.repeatForever(animation))
-
     }
 }
 
