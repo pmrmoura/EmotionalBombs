@@ -37,7 +37,7 @@ class Player:SKNode{
             let repeatMove = SKAction.repeatForever(moveLeft)
             self.body?.run(repeatMove, withKey: "move")
         }else if direction == .up{
-            self.body?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 1500))
+            self.body?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 1000))
         }
     }
     

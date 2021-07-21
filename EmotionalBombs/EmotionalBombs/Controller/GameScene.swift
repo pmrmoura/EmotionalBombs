@@ -27,7 +27,7 @@ class GameScene: SKScene {
         player.isUserInteractionEnabled = true
         self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
         
-        createBackground()
+        //createBackground()
         
         if let background = self.scene?.childNode(withName: "background.jpeg"){
             self.background = background as! SKSpriteNode
@@ -74,16 +74,14 @@ class GameScene: SKScene {
                     moveBox(node: node)
                 }
                 else if node.name! == "bird"{
-                    print("bird pressed")
-                    SKAction
+                    birdFly(node: node)
                 }
-                
             }
         }
     }
-    
     override func update(_ currentTime: TimeInterval){
         self.camera?.position.x = (player.body?.position.x)!
+        //self.camera?.position.y = (player.body?.position.y)!
         if goingLeft && (player.body?.position.x)! <= 100 {
             player.stopMove()
         }
@@ -93,6 +91,28 @@ class GameScene: SKScene {
 
 //Player Moviment extension
 extension GameScene{
+    
+    func birdFly(node:SKNode){
+        player.body?.physicsBody?.affectedByGravity = false
+        player.body?.physicsBody?.isDynamic = false
+        print("bird pressed")
+        let birdGoUp = SKAction.moveTo(y: 381.17, duration: 2)
+        node.run(birdGoUp,completion: {
+            let jumpOnBird = SKAction.move(by: CGVector(dx: 40, dy: 40), duration: 0.2)
+            let moveToBird = SKAction.move(to: node.position, duration: 0.5)
+            let seq = SKAction.sequence([jumpOnBird,moveToBird])
+            self.player.body?.run(seq,completion: {
+                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4530, y: 381.17), duration: 3.0)
+                node.run(moveToOtherSide)
+                self.player.body?.run(moveToOtherSide,completion: {
+                    self.player.body?.physicsBody?.affectedByGravity = true
+                    self.player.body?.physicsBody?.isDynamic = true
+                    let moveToGround = SKAction.move(to: CGPoint(x: 4800, y: 449.37), duration: 0.2)
+                    self.player.body?.run(moveToGround)
+                })
+            })
+        })
+    }
     
     func moveBox(node:SKNode){
         if !jointHappened{
