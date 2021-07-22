@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1708C81E26A9B23C00A28A1E /* effect.mp3 */; };
 		2824C45326973B02002C70EB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824C45226973B02002C70EB /* Player.swift */; };
 		2857C4D426971B3A00856AA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2857C4D326971B3A00856AA5 /* AppDelegate.swift */; };
 		2857C4D626971B3A00856AA5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2857C4D526971B3A00856AA5 /* GameScene.sks */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1708C81E26A9B23C00A28A1E /* effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = effect.mp3; sourceTree = "<group>"; };
 		2824C45226973B02002C70EB /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2857C4D026971B3A00856AA5 /* EmotionalBombs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionalBombs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2857C4D326971B3A00856AA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				2857C4DB26971B3A00856AA5 /* GameViewController.swift */,
+				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
 				2857C4D926971B3A00856AA5 /* GameScene.swift */,
 			);
 			path = Controller;
@@ -156,6 +159,7 @@
 			files = (
 				2857C4DF26971B3A00856AA5 /* Main.storyboard in Resources */,
 				2857C4D626971B3A00856AA5 /* GameScene.sks in Resources */,
+				1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */,
 				2857C4E126971B3B00856AA5 /* Assets.xcassets in Resources */,
 				2857C4D826971B3A00856AA5 /* Actions.sks in Resources */,
 			);
@@ -311,7 +315,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UM7BRLPWKH;
+				DEVELOPMENT_TEAM = 2QC8C374PG;
 				INFOPLIST_FILE = EmotionalBombs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -330,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UM7BRLPWKH;
+				DEVELOPMENT_TEAM = 2QC8C374PG;
 				INFOPLIST_FILE = EmotionalBombs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
