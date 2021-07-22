@@ -12,8 +12,9 @@ enum MoveDirection {
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var background = SKSpriteNode(imageNamed: "background.jpg")
     var player = Player(body:nil, walkingFrames: [])
@@ -21,16 +22,18 @@ class GameScene: SKScene {
     var jointHappened = false
     var jt: SKPhysicsJointLimit?
     var goingLeft = false
+    private var audioPlayer: AVAudioPlayer?
     
     override func didMove(to view: SKView){
         print("Scene loaded")
         player.isUserInteractionEnabled = true
         self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
+        self.scene?.physicsWorld.contactDelegate = self
         
         if let background = self.scene?.childNode(withName: "background"){
             self.background = background as! SKSpriteNode
             let darkBackground = SKAction.colorize(with: .black, colorBlendFactor: 0.7, duration: 0.1)
-            self.background.run(darkBackground)
+//            self.background.run(darkBackground)
         }
         if let playerBody = self.scene?.childNode(withName: "player") as? SKSpriteNode{
             player = Player(body: playerBody, walkingFrames: [])
@@ -40,7 +43,41 @@ class GameScene: SKScene {
         if let camera = self.scene?.childNode(withName: "camera") as? SKCameraNode{
             self.camera = camera
         }
+        
     }
+  
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+
+        let soundEffect = Bundle.main.path(forResource: "effect", ofType: "mp3")
+        let url = URL(fileURLWithPath: soundEffect!)
+        audioPlayer = AVAudioPlayer()
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+        } catch{
+            print(" deu pau no audio")
+        }
+//
+        print("entrou no begin do contatooo")
+        if contact.bodyA.node?.name == "luz" || contact.bodyA.node?.name == "player"  {
+           if contact.bodyB.node?.name == "luz" || contact.bodyB.node?.name == "player" {
+                let scaleLightMemory = SKAction.scale(by: 1.5, duration: 1)
+                let fadeOutLightMemory = SKAction.fadeOut(withDuration:1)
+                if let luzNode = self.childNode(withName: "luz") {
+                    self.audioPlayer?.play()
+                    luzNode.run(SKAction.sequence([scaleLightMemory,fadeOutLightMemory]), completion: {
+                        luzNode.removeFromParent()
+                    })
+                    
+                }
+            
+            }
+        }
+    }
+    
     
     func scrollBackground(){
         self.enumerateChildNodes(withName: "background", using: ({
@@ -98,6 +135,7 @@ extension GameScene{
                     self.player.body?.physicsBody?.isDynamic = true
                     let moveToGround = SKAction.move(to: CGPoint(x: 4270, y: 50), duration: 0.2)
                     self.player.body?.run(moveToGround)
+                
                 })
             })
         })
