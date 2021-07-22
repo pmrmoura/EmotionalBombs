@@ -47,7 +47,7 @@ class Player:SKNode{
     }
     
      func buildAnimationWalkingRight(){
-        for i in 3...9 { //numImages
+        for i in 4...9 { //numImages
             self.walkingFrames.append(SKTexture(imageNamed: "EspiritoGaiaAnimacao_0000\(i)"))
         }
     }

@@ -27,10 +27,10 @@ class GameScene: SKScene {
         player.isUserInteractionEnabled = true
         self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
         
-        //createBackground()
-        
-        if let background = self.scene?.childNode(withName: "background.jpeg"){
+        if let background = self.scene?.childNode(withName: "background"){
             self.background = background as! SKSpriteNode
+            let darkBackground = SKAction.colorize(with: .black, colorBlendFactor: 0.7, duration: 0.1)
+            self.background.run(darkBackground)
         }
         if let playerBody = self.scene?.childNode(withName: "player") as? SKSpriteNode{
             player = Player(body: playerBody, walkingFrames: [])
@@ -39,17 +39,6 @@ class GameScene: SKScene {
         
         if let camera = self.scene?.childNode(withName: "camera") as? SKCameraNode{
             self.camera = camera
-        }
-    }
-    
-    func createBackground() {
-        for i in 0...2 {
-            let background = SKSpriteNode(imageNamed: "background\(i).png")
-            background.name = "background"
-            background.size = CGSize(width: (self.scene?.size.width)!, height: (self.scene?.size.height)!)
-            background.position = CGPoint(x: CGFloat(i) * background.size.width , y: (self.frame.size.height / 32))
-            background.zPosition = -10
-            self.addChild(background)
         }
     }
     
@@ -102,12 +91,12 @@ extension GameScene{
             let moveToBird = SKAction.move(to: node.position, duration: 0.5)
             let seq = SKAction.sequence([jumpOnBird,moveToBird])
             self.player.body?.run(seq,completion: {
-                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4530, y: 381.17), duration: 3.0)
+                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4110, y: 150), duration: 3.0)
                 node.run(moveToOtherSide)
                 self.player.body?.run(moveToOtherSide,completion: {
                     self.player.body?.physicsBody?.affectedByGravity = true
                     self.player.body?.physicsBody?.isDynamic = true
-                    let moveToGround = SKAction.move(to: CGPoint(x: 4800, y: 449.37), duration: 0.2)
+                    let moveToGround = SKAction.move(to: CGPoint(x: 4270, y: 50), duration: 0.2)
                     self.player.body?.run(moveToGround)
                 })
             })
