@@ -123,14 +123,24 @@ extension GameScene{
         player.body?.physicsBody?.isDynamic = false
         print("bird pressed")
         
-        var birdFlying:[SKTexture] = []
+        var flying2getherToLight:[SKTexture] = []
         for i in 0...13{
             let texture = SKTexture(imageNamed: "Arara_Personagem_Animar_0000\(i)")
-            birdFlying.append(texture)
+            flying2getherToLight.append(texture)
+        }
+        
+        var birdFlyingToPlayer:[SKTexture] = []
+        for i in 0...13{
+            let texture = SKTexture(imageNamed: "AraraGaiaAnimacao_0000\(i)")
+            birdFlyingToPlayer.append(texture)
         }
         
     
         let birdGoUp = SKAction.moveTo(y: 381.17, duration: 2)
+        let animateFlyingUp = SKAction.animate(with: birdFlyingToPlayer, timePerFrame: 0.1)
+        node.run(SKAction.setTexture(SKTexture(imageNamed: "AraraGaiaAnimacao_00000"),resize: true))
+        node.run(SKAction.repeatForever(animateFlyingUp), withKey: "flyingUp")
+        
         node.run(birdGoUp,completion: {
             
             let jumpOnBird = SKAction.move(by: CGVector(dx: 40, dy: 40), duration: 0.2)
@@ -139,16 +149,22 @@ extension GameScene{
             
             self.player.body?.run(seq,completion: {
                 
+                node.removeAction(forKey: "flyingUp")
+                
                 self.player.body?.alpha = 0.0
+                
                 node.run(SKAction.setTexture(SKTexture(imageNamed: "Arara_Personagem_Animar_00000"),resize: true))
                 let moveToOtherSide = SKAction.move(to: CGPoint(x: 4110, y: 150), duration: 3.0)
-                let animateFly = SKAction.animate(with: birdFlying, timePerFrame: 0.1)
+                let animateFly = SKAction.animate(with: flying2getherToLight, timePerFrame: 0.1)
+                
                 node.run(SKAction.repeatForever(animateFly),withKey: "flying")
                 node.run(moveToOtherSide)
                 self.player.body?.run(moveToOtherSide,completion: {
                     node.removeAction(forKey: "flying")
+                    
                     self.player.body?.physicsBody?.affectedByGravity = true
                     self.player.body?.physicsBody?.isDynamic = true
+                    
                     let moveToGround = SKAction.move(to: CGPoint(x: 4110, y: 150), duration: 0.2)
                     self.player.body?.run(moveToGround)
                 
