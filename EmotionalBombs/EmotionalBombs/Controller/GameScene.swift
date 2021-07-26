@@ -23,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var jt: SKPhysicsJointLimit?
     var goingLeft = false
     private var audioPlayer: AVAudioPlayer?
+    var birdFlew = false
     
     override func didMove(to view: SKView){
         print("Scene loaded")
@@ -107,9 +108,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     override func update(_ currentTime: TimeInterval){
         self.camera?.position.x = (player.body?.position.x)!
-        //self.camera?.position.y = (player.body?.position.y)!
+        
+//        print((player.body?.position.x)!)
+        
         if goingLeft && (player.body?.position.x)! <= 100 {
             player.stopMove()
+        }
+        if (player.body?.position.x)! >= 1990 && !birdFlew { // i can see the bird on screen?
+            self.sawBirdOnScreen()
         }
     }
 }
@@ -118,10 +124,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //Player Moviment extension
 extension GameScene{
     
+    func sawBirdOnScreen(){
+        
+        if let node = self.scene?.childNode(withName: "bird"){
+            
+            var flying:[SKTexture] = []
+            
+            for i in 2...11{
+                let texture = SKTexture(imageNamed: "AraraGaiaAnimacao_0000\(i)")
+                flying.append(texture)
+            }
+                
+            let animateFlyingStucked = SKAction.animate(with: flying, timePerFrame: 0.1)
+            node.run(SKAction.setTexture(SKTexture(imageNamed: "AraraGaiaAnimacao_00000"),resize: true))
+            node.run(SKAction.repeatForever(animateFlyingStucked), withKey: "birdFlyingStucked")
+        }
+    }
+    
     func birdFly(node:SKNode){
         player.body?.physicsBody?.affectedByGravity = false
         player.body?.physicsBody?.isDynamic = false
         print("bird pressed")
+        self.birdFlew = true
+        node.removeAction(forKey: "birdFlyingStucked")
         
         var flying2getherToLight:[SKTexture] = []
         for i in 0...13{
@@ -154,7 +179,7 @@ extension GameScene{
                 self.player.body?.alpha = 0.0
                 
                 node.run(SKAction.setTexture(SKTexture(imageNamed: "Arara_Personagem_Animar_00000"),resize: true))
-                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4110, y: 150), duration: 3.0)
+                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4140, y: 150), duration: 3.0)
                 let animateFly = SKAction.animate(with: flying2getherToLight, timePerFrame: 0.1)
                 
                 node.run(SKAction.repeatForever(animateFly),withKey: "flying")
@@ -165,12 +190,21 @@ extension GameScene{
                     self.player.body?.physicsBody?.affectedByGravity = true
                     self.player.body?.physicsBody?.isDynamic = true
                     
-                    let moveToGround = SKAction.move(to: CGPoint(x: 4110, y: 150), duration: 0.2)
+                    let moveToGround = SKAction.move(to: CGPoint(x: 4165, y: 150), duration: 0.2)
                     self.player.body?.run(moveToGround)
-                
+                    
+                    node.removeAllActions()
+                    node.alpha = 0.0
+                    
+                    self.player.body?.position.x = 4165
+                    self.player.body?.position.y = 0
+                    self.player.body?.alpha = 1.0
+   
                 })
             })
         })
+    
+       
     }
     
     func moveBox(node:SKNode){
