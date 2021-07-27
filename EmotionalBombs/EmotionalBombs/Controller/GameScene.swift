@@ -16,7 +16,6 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var background = SKSpriteNode(imageNamed: "background.jpg")
     var player = Player(body:nil, walkingFrames: [])
     var readyToUpdate = false
     var jointHappened = false
@@ -27,15 +26,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView){
         print("Scene loaded")
+        
         player.isUserInteractionEnabled = true
         self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
         self.scene?.physicsWorld.contactDelegate = self
         
-        if let background = self.scene?.childNode(withName: "background"){
-            self.background = background as! SKSpriteNode
-            let darkBackground = SKAction.colorize(with: .black, colorBlendFactor: 0.7, duration: 0.1)
+        
+//        if let background = self.scene?.childNode(withName: "background-10mb"){
+//            self.background = background as! SKSpriteNode
+//            let darkBackground = SKAction.colorize(with: .black, colorBlendFactor: 0.7, duration: 0.1)
 //            self.background.run(darkBackground)
-        }
+//        }
         if let playerBody = self.scene?.childNode(withName: "player") as? SKSpriteNode{
             player = Player(body: playerBody, walkingFrames: [])
         }
@@ -57,7 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
-            audioPlayer?.play()
+//            audioPlayer?.play()
         } catch{
             print(" deu pau no audio")
         }
@@ -75,6 +76,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                 }
             
+            }
+        }
+        
+        
+        if contact.bodyA.node?.name == "moveble" || contact.bodyA.node?.name == "ground"  {
+            if contact.bodyB.node?.name == "moveble" || contact.bodyB.node?.name == "ground" {
+                print("opa caixa tocou chao")
+//                contact.bodyB.node?.physicsBody?.isDynamic = false
+//                contact.bodyB.node?.physicsBody?.affectedByGravity = false
+//
+//                contact.bodyA.node?.physicsBody?.isDynamic = false
+//                contact.bodyA.node?.physicsBody?.affectedByGravity = false
+                
+//                let scaleLightMemory = SKAction.scale(by: 1.5, duration: 1)
+//                let fadeOutLightMemory = SKAction.fadeOut(withDuration:1)
+//                if let luzNode = self.childNode(withName: "luz") {
+//                    self.audioPlayer?.play()
+//                    luzNode.run(SKAction.sequence([scaleLightMemory,fadeOutLightMemory]), completion: {
+//                        luzNode.removeFromParent()
+//                    })
+//
+//                }
+                
             }
         }
     }
@@ -114,7 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if goingLeft && (player.body?.position.x)! <= 100 {
             player.stopMove()
         }
-        if (player.body?.position.x)! >= 1990 && !birdFlew { // i can see the bird on screen?
+        if (player.body?.position.x)! >= 1900 && !birdFlew { // i can see the bird on screen?
             self.sawBirdOnScreen()
         }
     }
@@ -209,12 +233,17 @@ extension GameScene{
     
     func moveBox(node:SKNode){
         if !jointHappened{
-            node.physicsBody?.isDynamic = true
-            node.physicsBody?.affectedByGravity = true
-            jt = SKPhysicsJointLimit.joint(withBodyA: (player.body?.physicsBody)!, bodyB: node.physicsBody!, anchorA: player.body!.position, anchorB: node.position)
-            self.scene?.physicsWorld.add(jt!)
-            print("Joint added")
-            self.jointHappened.toggle()
+            let blockAction = SKAction.run({
+                node.physicsBody?.isDynamic = true
+                node.physicsBody?.affectedByGravity = true
+                self.jt = SKPhysicsJointLimit.joint(withBodyA: (self.player.body?.physicsBody)!, bodyB: node.physicsBody!, anchorA: self.player.body!.position, anchorB: node.position)
+                self.scene?.physicsWorld.add(self.jt!)
+                print("Joint added")
+                self.jointHappened.toggle()
+            })
+            self.scene?.run(blockAction)
+        
+   
         }
         else {
             node.physicsBody?.isDynamic = false
