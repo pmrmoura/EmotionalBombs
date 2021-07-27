@@ -132,6 +132,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     override func update(_ currentTime: TimeInterval){
         self.camera?.position.x = (player.body?.position.x)!
+        self.camera?.position.y = (player.body?.position.y)! + 350
         
 //        print((player.body?.position.x)!)
         
@@ -221,7 +222,7 @@ extension GameScene{
                     node.alpha = 0.0
                     
                     self.player.body?.position.x = 4165
-                    self.player.body?.position.y = 0
+                    self.player.body?.position.y = 150
                     self.player.body?.alpha = 1.0
    
                 })
