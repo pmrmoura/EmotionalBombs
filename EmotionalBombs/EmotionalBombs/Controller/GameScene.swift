@@ -58,7 +58,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
-//            audioPlayer?.play()
         } catch{
             print(" deu pau no audio")
         }
@@ -76,29 +75,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                 }
             
-            }
-        }
-        
-        
-        if contact.bodyA.node?.name == "moveble" || contact.bodyA.node?.name == "ground"  {
-            if contact.bodyB.node?.name == "moveble" || contact.bodyB.node?.name == "ground" {
-                print("opa caixa tocou chao")
-//                contact.bodyB.node?.physicsBody?.isDynamic = false
-//                contact.bodyB.node?.physicsBody?.affectedByGravity = false
-//
-//                contact.bodyA.node?.physicsBody?.isDynamic = false
-//                contact.bodyA.node?.physicsBody?.affectedByGravity = false
-                
-//                let scaleLightMemory = SKAction.scale(by: 1.5, duration: 1)
-//                let fadeOutLightMemory = SKAction.fadeOut(withDuration:1)
-//                if let luzNode = self.childNode(withName: "luz") {
-//                    self.audioPlayer?.play()
-//                    luzNode.run(SKAction.sequence([scaleLightMemory,fadeOutLightMemory]), completion: {
-//                        luzNode.removeFromParent()
-//                    })
-//
-//                }
-                
             }
         }
     }
@@ -130,6 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
     override func update(_ currentTime: TimeInterval){
         self.camera?.position.x = (player.body?.position.x)!
         self.camera?.position.y = (player.body?.position.y)! + 350
@@ -148,6 +125,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 //Player Moviment extension
 extension GameScene{
+    
     
     func sawBirdOnScreen(){
         
@@ -247,11 +225,14 @@ extension GameScene{
    
         }
         else {
-            node.physicsBody?.isDynamic = false
-            node.physicsBody?.affectedByGravity = false
-            self.scene?.physicsWorld.remove(jt!)
-            print("Joint removed")
-            self.jointHappened.toggle()
+            let blockAction = SKAction.run({
+                node.physicsBody?.isDynamic = false
+                node.physicsBody?.affectedByGravity = false
+                self.scene?.physicsWorld.remove(self.jt!)
+                print("Joint removed")
+                self.jointHappened.toggle()
+            })
+            self.scene?.run(blockAction)
         }
     }
     
@@ -277,7 +258,14 @@ extension GameScene{
             player.moveTo(direction: .up)
         }
         
-        player.animatePlayer()
+        if !jointHappened{
+            self.player.animatePlayer()
+        }
+        else if direction == .left || direction == .right {
+            self.player.pushTheBoxAnimation()
+
+        }
+    
         
         
     }
