@@ -17,7 +17,8 @@ class DragController: UIViewController {
         backgroundImage.contentMode =  .scaleAspectFill
         self.view.addSubview(backgroundImage)
         
-        let araraGif = UIImage.gifImageWithName("araraflyng")
+        let url = Bundle.main.url(forResource: "araraflyng", withExtension: "gif")!
+        let araraGif = UIImage.gifImageWithURL(url)
         let imageView = UIImageView(image: araraGif)
         imageView.isUserInteractionEnabled = true
         imageView.frame = CGRect(x: 0, y: 0, width: 2732/5, height:2048/5)
