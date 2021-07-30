@@ -25,6 +25,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var sawFirstPuzzle = false
     var puzzleSolved = false
     
+    var controllerDelegate: GameSceneDelegate?
+    
     override func didMove(to view: SKView){
         print("Scene loaded")
         
@@ -74,6 +76,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         luzNode.removeFromParent()
                     })
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.controllerDelegate?.navigateToDragView()
+                    }
                 }
             
             }

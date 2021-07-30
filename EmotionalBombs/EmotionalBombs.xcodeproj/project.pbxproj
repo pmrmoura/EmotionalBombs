@@ -15,8 +15,9 @@
 		2857C4D826971B3A00856AA5 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2857C4D726971B3A00856AA5 /* Actions.sks */; };
 		2857C4DA26971B3A00856AA5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2857C4D926971B3A00856AA5 /* GameScene.swift */; };
 		2857C4DC26971B3A00856AA5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2857C4DB26971B3A00856AA5 /* GameViewController.swift */; };
-		2857C4DF26971B3A00856AA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2857C4DD26971B3A00856AA5 /* Main.storyboard */; };
 		2857C4E126971B3B00856AA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2857C4E026971B3B00856AA5 /* Assets.xcassets */; };
+		C1AE9BA526B1859900A34C32 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AE9BA426B1859900A34C32 /* UIImage+GIF.swift */; };
+		C1AE9BA726B186CF00A34C32 /* araraflyng.gif in Resources */ = {isa = PBXBuildFile; fileRef = C1AE9BA626B186CF00A34C32 /* araraflyng.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +30,10 @@
 		2857C4D726971B3A00856AA5 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		2857C4D926971B3A00856AA5 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		2857C4DB26971B3A00856AA5 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		2857C4DE26971B3A00856AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2857C4E026971B3B00856AA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2857C4E226971B3B00856AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1AE9BA426B1859900A34C32 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
+		C1AE9BA626B186CF00A34C32 /* araraflyng.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = araraflyng.gif; path = ../../../../../Downloads/araraflyng.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +74,13 @@
 		2857C4D226971B3A00856AA5 /* EmotionalBombs */ = {
 			isa = PBXGroup;
 			children = (
+				C1AE9BA326B1858B00A34C32 /* Extensions */,
 				2824C45126973AC0002C70EB /* Model */,
 				2857C4EB269731C400856AA5 /* View */,
 				2857C4EA269731A000856AA5 /* Controller */,
 				2857C4D326971B3A00856AA5 /* AppDelegate.swift */,
 				2857C4E026971B3B00856AA5 /* Assets.xcassets */,
+				C1AE9BA626B186CF00A34C32 /* araraflyng.gif */,
 				2857C4E226971B3B00856AA5 /* Info.plist */,
 			);
 			path = EmotionalBombs;
@@ -97,10 +101,17 @@
 			isa = PBXGroup;
 			children = (
 				2857C4D726971B3A00856AA5 /* Actions.sks */,
-				2857C4DD26971B3A00856AA5 /* Main.storyboard */,
 				2857C4D526971B3A00856AA5 /* GameScene.sks */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C1AE9BA326B1858B00A34C32 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1AE9BA426B1859900A34C32 /* UIImage+GIF.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2857C4DF26971B3A00856AA5 /* Main.storyboard in Resources */,
+				C1AE9BA726B186CF00A34C32 /* araraflyng.gif in Resources */,
 				2857C4D626971B3A00856AA5 /* GameScene.sks in Resources */,
 				1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */,
 				2857C4E126971B3B00856AA5 /* Assets.xcassets in Resources */,
@@ -179,22 +190,12 @@
 				2843619326AEE6BE007B00DA /* DragController.swift in Sources */,
 				2857C4DA26971B3A00856AA5 /* GameScene.swift in Sources */,
 				2857C4DC26971B3A00856AA5 /* GameViewController.swift in Sources */,
+				C1AE9BA526B1859900A34C32 /* UIImage+GIF.swift in Sources */,
 				2857C4D426971B3A00856AA5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		2857C4DD26971B3A00856AA5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2857C4DE26971B3A00856AA5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2857C4E326971B3B00856AA5 /* Debug */ = {

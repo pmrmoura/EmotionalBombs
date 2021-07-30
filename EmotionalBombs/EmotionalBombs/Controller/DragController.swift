@@ -7,16 +7,21 @@
 
 import UIKit
 
-class DragController: UIViewController{
-    
+class DragController: UIViewController {
     override func viewDidLoad() {
         self.view.addInteraction(UIDragInteraction(delegate: self))
         print("Drag View")
-        let image = UIImage(named: "Arara_Personagem_Animar_Drag")
-        let imageView = UIImageView(image: image!)
+        
+        let backgroundImage = UIImageView(frame: self.view.bounds)
+        backgroundImage.image = UIImage(named: "Cenario_DragAndDrop.png")
+        backgroundImage.contentMode =  .scaleAspectFill
+        self.view.addSubview(backgroundImage)
+        
+        let araraGif = UIImage.gifImageWithName("araraflyng")
+        let imageView = UIImageView(image: araraGif)
         imageView.isUserInteractionEnabled = true
-        self.view.addSubview(imageView)
         imageView.frame = CGRect(x: 0, y: 0, width: 2732/5, height:2048/5)
+        self.view.addSubview(imageView)
     }
 }
 
@@ -25,9 +30,11 @@ extension DragController: UIDragInteractionDelegate{
         print("itens for begging")
         print("touch location \(session.location(in: self.view))")
         if let touchedView = self.view.hitTest(session.location(in: self.view), with: nil) as? UIImageView{
-            let touchedImage = touchedView.image
-            print(touchedView.frame)
-            let item = UIDragItem(itemProvider: NSItemProvider(object: touchedImage!))
+           
+            
+            let url = Bundle.main.url(forResource: "araraflyng", withExtension: "gif")
+            
+            let item = UIDragItem(itemProvider: NSItemProvider(contentsOf: url)!)
             item.localObject = touchedView
             return[item]
         }
@@ -35,7 +42,10 @@ extension DragController: UIDragInteractionDelegate{
         return []
     }
      public func dragInteraction(_ interaction: UIDragInteraction, previewForLifting item: UIDragItem, session: UIDragSession) -> UITargetedDragPreview? {
-        return UITargetedDragPreview(view: item.localObject as! UIView)
+        let previewParameters = UIDragPreviewParameters()
+        previewParameters.backgroundColor = .init(white: 1, alpha: 0.1)
+        previewParameters.visiblePath = UIBezierPath(arcCenter: CGPoint(x: 250, y: 200), radius: 200,  startAngle: 20, endAngle: 50, clockwise: true)
+        return UITargetedDragPreview(view: item.localObject as! UIView, parameters: previewParameters)
     }
     
     public func dragInteraction(_ interaction: UIDragInteraction, willAnimateLiftWith animator: UIDragAnimating, session: UIDragSession) {
