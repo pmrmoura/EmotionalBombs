@@ -17,12 +17,12 @@ import AVFoundation
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player = Player(body:nil, walkingFrames: [])
-    var readyToUpdate = false
     var jointHappened = false
     var jt: SKPhysicsJointLimit?
     var goingLeft = false
     private var audioPlayer: AVAudioPlayer?
     var birdFlew = false
+    var sawFirstPuzzle = false
     
     override func didMove(to view: SKView){
         print("Scene loaded")
@@ -131,16 +131,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     override func update(_ currentTime: TimeInterval){
-        self.camera?.position.x = (player.body?.position.x)!
-        self.camera?.position.y = (player.body?.position.y)! + 350
+        
+        if(!sawFirstPuzzle){
+            self.camera?.position.x = (player.body?.position.x)!
+            self.camera?.position.y = (player.body?.position.y)! + 350
+        }
         
 //        print((player.body?.position.x)!)
         
         if goingLeft && (player.body?.position.x)! <= 100 {
             player.stopMove()
         }
-        if (player.body?.position.x)! >= 1900 && !birdFlew { // i can see the bird on screen?
-            self.sawBirdOnScreen()
+        
+        if (player.body?.position.x)! > 2800 && !sawFirstPuzzle{
+            print("meet the firs PUZZLEEEEEEEEEEE")
+            let moveTo = SKAction.move(to: CGPoint(x: 3800, y: 247.789), duration: 2)
+            let zoomOut = SKAction.scale(by: 2, duration: 2)
+            self.camera?.run(moveTo)
+            self.camera?.run(zoomOut)
+            sawFirstPuzzle = true
         }
     }
 }
@@ -186,7 +195,7 @@ extension GameScene{
         }
         
     
-        let birdGoUp = SKAction.moveTo(y: 381.17, duration: 2)
+        let birdGoUp = SKAction.moveTo(y: 764.244, duration: 2)
         let animateFlyingUp = SKAction.animate(with: birdFlyingToPlayer, timePerFrame: 0.1)
         node.run(SKAction.setTexture(SKTexture(imageNamed: "AraraGaiaAnimacao_00000"),resize: true))
         node.run(SKAction.repeatForever(animateFlyingUp), withKey: "flyingUp")
