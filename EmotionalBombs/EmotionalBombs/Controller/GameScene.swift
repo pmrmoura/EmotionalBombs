@@ -127,7 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if (player.body?.position.x)! > 2800 && !sawFirstPuzzle{
-            let moveTo = SKAction.move(to: CGPoint(x: 3800, y: 247.789), duration: 2)
+            let moveTo = SKAction.move(to: CGPoint(x: 3800, y: 500), duration: 2)
             let zoomOut = SKAction.scale(by: 2, duration: 2)
             self.camera?.run(moveTo)
             self.camera?.run(zoomOut)
