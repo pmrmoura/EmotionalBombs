@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DragController: UIViewController{
+class DragController: UIViewController {
     override func viewDidLoad() {
         self.view.addInteraction(UIDragInteraction(delegate: self))
         print("Drag View")
@@ -17,8 +17,8 @@ class DragController: UIViewController{
         backgroundImage.contentMode =  .scaleAspectFill
         self.view.addSubview(backgroundImage)
         
-        let jeremyGif = UIImage.gifImageWithName("araraflyng")
-        let imageView = UIImageView(image: jeremyGif)
+        let araraGif = UIImage.gifImageWithName("araraflyng")
+        let imageView = UIImageView(image: araraGif)
         imageView.isUserInteractionEnabled = true
         imageView.frame = CGRect(x: 0, y: 0, width: 2732/5, height:2048/5)
         self.view.addSubview(imageView)
@@ -30,9 +30,11 @@ extension DragController: UIDragInteractionDelegate{
         print("itens for begging")
         print("touch location \(session.location(in: self.view))")
         if let touchedView = self.view.hitTest(session.location(in: self.view), with: nil) as? UIImageView{
-            let touchedImage = touchedView.image
-            print(touchedView.frame)
-            let item = UIDragItem(itemProvider: NSItemProvider(object: touchedImage!))
+           
+            
+            let url = Bundle.main.url(forResource: "araraflyng", withExtension: "gif")
+            
+            let item = UIDragItem(itemProvider: NSItemProvider(contentsOf: url)!)
             item.localObject = touchedView
             return[item]
         }

@@ -9,12 +9,24 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+protocol GameSceneDelegate {
+    func navigateToDragView()
+}
+
+class GameViewController: UIViewController, GameSceneDelegate {
+    func navigateToDragView() {
+
+        self.navigationController?.pushViewController(DragController(), animated: true)
+    }
+    
     var gameSecene = GameScene()
+    
+    override func loadView() {
+        self.view = SKView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             
@@ -22,7 +34,7 @@ class GameViewController: UIViewController {
                 // Set the scale mode to scale to fit the window
                 gameSecene = scene
                 gameSecene.scaleMode = .aspectFill
-                
+                gameSecene.controllerDelegate = self
                 // Present the scene
                 let rightSwipe = UISwipeGestureRecognizer(target: self, action:#selector(swipeHandler(_:)))
                 let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
