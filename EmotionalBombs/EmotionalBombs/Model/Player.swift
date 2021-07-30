@@ -60,4 +60,20 @@ class Player:SKNode{
                                      restore: false)),
                    withKey:"walkingInPlacePlayer")
     }
+    
+    func pushTheBoxAnimation(){
+        
+        var pushing:[SKTexture] = []
+        
+        for i in 1...3{
+            let texture = SKTexture(imageNamed: "EspiritoEmpurrar\(i)")
+            pushing.append(texture)
+        }
+        
+        let animatePlayerPushing = SKAction.animate(with: pushing, timePerFrame: 0.1, resize: true, restore: false)
+        
+        self.body?.run(SKAction.setTexture(SKTexture(imageNamed: "EspiritoEmpurrar1"),resize: true))
+        self.body?.run(animatePlayerPushing, withKey: "SpiritPushing")
+            }
 }
+
