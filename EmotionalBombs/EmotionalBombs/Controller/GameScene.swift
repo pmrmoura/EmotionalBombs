@@ -34,12 +34,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
         self.scene?.physicsWorld.contactDelegate = self
         
+        //        if let background = self.scene?.childNode(withName: "background") as? SKSpriteNode{
+        //            let darkBackground = SKAction.colorize(with: .black, colorBlendFactor: 0.7, duration: 0.1)
+        //            background.run(darkBackground)
+        //        }
         
-//        if let background = self.scene?.childNode(withName: "background-10mb"){
-//            self.background = background as! SKSpriteNode
-//            let darkBackground = SKAction.colorize(with: .black, colorBlendFactor: 0.7, duration: 0.1)
-//            self.background.run(darkBackground)
-//        }
         if let playerBody = self.scene?.childNode(withName: "player") as? SKSpriteNode{
             player = Player(body: playerBody, walkingFrames: [])
         }
