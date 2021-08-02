@@ -20,6 +20,7 @@
 		C1297B1B26AEEC01004E4F47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1297B1D26AEEC01004E4F47 /* Localizable.strings */; };
 		C1297B2126AEEE6E004E4F47 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1297B2026AEEE6E004E4F47 /* OnboardingView.swift */; };
 		C1297B2426AEEECF004E4F47 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1297B2326AEEECF004E4F47 /* ViewCode.swift */; };
+		C1E0D0DB26B825AB0085C69D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1E0D0DA26B825AB0085C69D /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		C1297B1F26AEECCE004E4F47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1297B2026AEEE6E004E4F47 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C1297B2326AEEECF004E4F47 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		C1E0D0DA26B825AB0085C69D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				2857C4D726971B3A00856AA5 /* Actions.sks */,
 				2857C4D526971B3A00856AA5 /* GameScene.sks */,
 				C1297B2026AEEE6E004E4F47 /* OnboardingView.swift */,
+				C1E0D0DA26B825AB0085C69D /* Launch Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1E0D0DB26B825AB0085C69D /* Launch Screen.storyboard in Resources */,
 				C1297B1B26AEEC01004E4F47 /* Localizable.strings in Resources */,
 				2857C4D626971B3A00856AA5 /* GameScene.sks in Resources */,
 				1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */,
