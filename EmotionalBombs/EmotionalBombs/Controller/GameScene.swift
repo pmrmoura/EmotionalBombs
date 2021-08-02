@@ -197,7 +197,7 @@ extension GameScene{
                 self.player.body?.alpha = 0.0
                 
                 node.run(SKAction.setTexture(SKTexture(imageNamed: "Arara_Personagem_Animar_00000"),resize: true))
-                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4140, y: 150), duration: 3.0)
+                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4160, y: 820), duration: 3.0)
                 let animateFly = SKAction.animate(with: flying2getherToLight, timePerFrame: 0.1)
                 
                 node.run(SKAction.repeatForever(animateFly),withKey: "flying")
@@ -225,7 +225,7 @@ extension GameScene{
             
                     
                     self.player.body?.position.x = 4265
-                    self.player.body?.position.y = 300
+                    self.player.body?.position.y = 800
                     self.player.body?.alpha = 1.0
    
                 })
