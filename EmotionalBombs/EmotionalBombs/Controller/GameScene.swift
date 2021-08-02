@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("entrou no begin do contatooo")
         if contact.bodyA.node?.name == "luz" || contact.bodyA.node?.name == "player"  {
            if contact.bodyB.node?.name == "luz" || contact.bodyB.node?.name == "player" {
-                let scaleLightMemory = SKAction.scale(by: 1.5, duration: 1)
+                let scaleLightMemory = SKAction.scale(by: 1.8, duration: 1)
                 let fadeOutLightMemory = SKAction.fadeOut(withDuration:1)
                 if let luzNode = self.childNode(withName: "luz") {
                     self.audioPlayer?.play()
@@ -75,7 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         luzNode.removeFromParent()
                     })
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         self.controllerDelegate?.navigateToDragView()
                     }
                 }
@@ -146,13 +146,14 @@ extension GameScene{
             
             var spinning:[SKTexture] = []
             
-            for i in 0...14{
+            for i in 0...13{
                 let texture = SKTexture(imageNamed: "MemoriaGaia_0000\(i)")
+                
                 spinning.append(texture)
             }
             
-            let memoryLightSpinning = SKAction.animate(with: spinning, timePerFrame: 0.1)
-            node.run(SKAction.setTexture(SKTexture(imageNamed: "MemoriaGaia_0000"),resize: true))
+            let memoryLightSpinning = SKAction.animate(with: spinning, timePerFrame: 0.1, resize: false, restore: false)
+            node.run(SKAction.setTexture(SKTexture(imageNamed: "MemoriaGaia_00000"),resize: false))
             node.run(SKAction.repeatForever(memoryLightSpinning), withKey: "spinningForever")
         }
     }
@@ -246,6 +247,9 @@ extension GameScene{
                     self.player.body?.position.x = 4265
                     self.player.body?.position.y = 800
                     self.player.body?.alpha = 1.0
+                    
+                    
+                    self.memoryLightAnimation()
    
                 })
             })
