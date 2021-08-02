@@ -140,6 +140,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //Player Moviment extension
 extension GameScene{
     
+    func memoryLightAnimation(){
+        
+        if let node = self.scene?.childNode(withName: "luz"){
+            
+            var spinning:[SKTexture] = []
+            
+            for i in 0...14{
+                let texture = SKTexture(imageNamed: "MemoriaGaia_0000\(i)")
+                spinning.append(texture)
+            }
+            
+            let memoryLightSpinning = SKAction.animate(with: spinning, timePerFrame: 0.1)
+            node.run(SKAction.setTexture(SKTexture(imageNamed: "MemoriaGaia_0000"),resize: true))
+            node.run(SKAction.repeatForever(memoryLightSpinning), withKey: "spinningForever")
+        }
+    }
+    
+    
+
+    
     
     func sawBirdOnScreen(){
         
