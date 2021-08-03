@@ -16,25 +16,30 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var background = SKSpriteNode(imageNamed: "background.jpg")
     var player = Player(body:nil, walkingFrames: [])
-    var readyToUpdate = false
     var jointHappened = false
     var jt: SKPhysicsJointLimit?
     var goingLeft = false
     private var audioPlayer: AVAudioPlayer?
+    var birdFlew = false
+    var sawFirstPuzzle = false
+    var puzzleSolved = false
+    
+    var controllerDelegate: GameSceneDelegate?
     
     override func didMove(to view: SKView){
         print("Scene loaded")
+        
         player.isUserInteractionEnabled = true
         self.scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
         self.scene?.physicsWorld.contactDelegate = self
         
-        if let background = self.scene?.childNode(withName: "background"){
-            self.background = background as! SKSpriteNode
-            let darkBackground = SKAction.colorize(with: .black, colorBlendFactor: 0.7, duration: 0.1)
+        
+//        if let background = self.scene?.childNode(withName: "background-10mb"){
+//            self.background = background as! SKSpriteNode
+//            let darkBackground = SKAction.colorize(with: .black, colorBlendFactor: 0.7, duration: 0.1)
 //            self.background.run(darkBackground)
-        }
+//        }
         if let playerBody = self.scene?.childNode(withName: "player") as? SKSpriteNode{
             player = Player(body: playerBody, walkingFrames: [])
         }
@@ -56,7 +61,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
-            audioPlayer?.play()
         } catch{
             print(" deu pau no audio")
         }
@@ -72,6 +76,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         luzNode.removeFromParent()
                     })
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.controllerDelegate?.navigateToDragView()
+                    }
                 }
             
             }
@@ -105,12 +112,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
     override func update(_ currentTime: TimeInterval){
-        self.camera?.position.x = (player.body?.position.x)!
-        //self.camera?.position.y = (player.body?.position.y)!
+        
+        if(!sawFirstPuzzle || puzzleSolved){
+            self.camera?.position.x = (player.body?.position.x)!
+            self.camera?.position.y = (player.body?.position.y)! + 350
+        }
+        
+//        print((player.body?.position.x)!)
+        
         if goingLeft && (player.body?.position.x)! <= 100 {
             player.stopMove()
         }
+        
+        if (player.body?.position.x)! > 2800 && !sawFirstPuzzle{
+            let moveTo = SKAction.move(to: CGPoint(x: 3800, y: 500), duration: 2)
+            let zoomOut = SKAction.scale(by: 2, duration: 2)
+            self.camera?.run(moveTo)
+            self.camera?.run(zoomOut)
+            sawFirstPuzzle = true
+        }
+        
     }
 }
 
@@ -118,10 +141,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //Player Moviment extension
 extension GameScene{
     
+    
+    func sawBirdOnScreen(){
+        
+        if let node = self.scene?.childNode(withName: "bird"){
+            
+            var flying:[SKTexture] = []
+            
+            for i in 2...11{
+                let texture = SKTexture(imageNamed: "AraraGaiaAnimacao_0000\(i)")
+                flying.append(texture)
+            }
+                
+            let animateFlyingStucked = SKAction.animate(with: flying, timePerFrame: 0.1)
+            node.run(SKAction.setTexture(SKTexture(imageNamed: "AraraGaiaAnimacao_00000"),resize: true))
+            node.run(SKAction.repeatForever(animateFlyingStucked), withKey: "birdFlyingStucked")
+        }
+    }
+    
     func birdFly(node:SKNode){
         player.body?.physicsBody?.affectedByGravity = false
         player.body?.physicsBody?.isDynamic = false
         print("bird pressed")
+        self.birdFlew = true
+        node.removeAction(forKey: "birdFlyingStucked")
         
         var flying2getherToLight:[SKTexture] = []
         for i in 0...13{
@@ -136,7 +179,7 @@ extension GameScene{
         }
         
     
-        let birdGoUp = SKAction.moveTo(y: 381.17, duration: 2)
+        let birdGoUp = SKAction.moveTo(y: 764.244, duration: 2)
         let animateFlyingUp = SKAction.animate(with: birdFlyingToPlayer, timePerFrame: 0.1)
         node.run(SKAction.setTexture(SKTexture(imageNamed: "AraraGaiaAnimacao_00000"),resize: true))
         node.run(SKAction.repeatForever(animateFlyingUp), withKey: "flyingUp")
@@ -154,40 +197,67 @@ extension GameScene{
                 self.player.body?.alpha = 0.0
                 
                 node.run(SKAction.setTexture(SKTexture(imageNamed: "Arara_Personagem_Animar_00000"),resize: true))
-                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4110, y: 150), duration: 3.0)
+                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4160, y: 820), duration: 3.0)
                 let animateFly = SKAction.animate(with: flying2getherToLight, timePerFrame: 0.1)
                 
                 node.run(SKAction.repeatForever(animateFly),withKey: "flying")
                 node.run(moveToOtherSide)
                 self.player.body?.run(moveToOtherSide,completion: {
-                    node.removeAction(forKey: "flying")
                     
+                    node.removeAllActions()
+                    var birdFlyingToPlayer:[SKTexture] = []
+                    for i in 0...13{
+                        let texture = SKTexture(imageNamed: "AraraGaiaAnimacao_0000\(i)")
+                        birdFlyingToPlayer.append(texture)
+                    }
+                    let birdGoBack = SKAction.move(to: CGPoint(x: 3029.716, y: -105.376), duration: 3)
+                    let animateFlyingUp = SKAction.animate(with: birdFlyingToPlayer, timePerFrame: 0.1)
+                    node.run(SKAction.setTexture(SKTexture(imageNamed: "AraraGaiaAnimacao_00000"),resize: true))
+                    node.run(SKAction.repeatForever(animateFlyingUp), withKey: "flyingUp")
+                    let seq = SKAction.sequence([SKAction.wait(forDuration: 2),SKAction.scaleX(to: -1, duration: 0.0),birdGoBack])
+                    node.run(seq, completion: {node.removeAllActions()})
+                    self.puzzleSolved = true
+                    let zoomIn = SKAction.scale(by: 1/2, duration: 2)
+                    self.camera?.run(zoomIn)
                     self.player.body?.physicsBody?.affectedByGravity = true
                     self.player.body?.physicsBody?.isDynamic = true
+
+            
                     
-                    let moveToGround = SKAction.move(to: CGPoint(x: 4110, y: 150), duration: 0.2)
-                    self.player.body?.run(moveToGround)
-                
+                    self.player.body?.position.x = 4265
+                    self.player.body?.position.y = 800
+                    self.player.body?.alpha = 1.0
+   
                 })
             })
         })
+    
+       
     }
     
     func moveBox(node:SKNode){
         if !jointHappened{
-            node.physicsBody?.isDynamic = true
-            node.physicsBody?.affectedByGravity = true
-            jt = SKPhysicsJointLimit.joint(withBodyA: (player.body?.physicsBody)!, bodyB: node.physicsBody!, anchorA: player.body!.position, anchorB: node.position)
-            self.scene?.physicsWorld.add(jt!)
-            print("Joint added")
-            self.jointHappened.toggle()
+            let blockAction = SKAction.run({
+                node.physicsBody?.isDynamic = true
+                node.physicsBody?.affectedByGravity = true
+                self.jt = SKPhysicsJointLimit.joint(withBodyA: (self.player.body?.physicsBody)!, bodyB: node.physicsBody!, anchorA: self.player.body!.position, anchorB: node.position)
+                self.scene?.physicsWorld.add(self.jt!)
+                print("Joint added")
+                self.jointHappened.toggle()
+            })
+            self.scene?.run(blockAction)
+        
+   
         }
         else {
-            node.physicsBody?.isDynamic = false
-            node.physicsBody?.affectedByGravity = false
-            self.scene?.physicsWorld.remove(jt!)
-            print("Joint removed")
-            self.jointHappened.toggle()
+            let blockAction = SKAction.run({
+                node.physicsBody?.isDynamic = false
+                node.physicsBody?.affectedByGravity = false
+                self.scene?.physicsWorld.remove(self.jt!)
+                print("Joint removed")
+                self.jointHappened.toggle()
+            })
+            self.scene?.run(blockAction)
         }
     }
     
@@ -213,7 +283,14 @@ extension GameScene{
             player.moveTo(direction: .up)
         }
         
-        player.animatePlayer()
+        if !jointHappened{
+            self.player.animatePlayer()
+        }
+        else if direction == .left || direction == .right {
+            self.player.pushTheBoxAnimation()
+
+        }
+    
         
         
     }

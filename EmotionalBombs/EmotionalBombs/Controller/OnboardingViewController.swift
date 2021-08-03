@@ -10,8 +10,7 @@ import UIKit
 class OnboardingViewController: UIViewController {
     
     override func loadView() {
-        self.view = OnboardingView()
-//        self.view.backgroundColor = .green
+        self.view = OnboardingView2()
     }
     
     override func viewDidLoad() {
