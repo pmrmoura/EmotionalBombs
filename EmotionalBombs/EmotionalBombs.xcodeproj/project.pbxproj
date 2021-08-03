@@ -49,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17C2299426B96DEB008EEBFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
+				C19FBC3E26B44A7C00832C16 /* araraflyng.gif */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		2824C45126973AC0002C70EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,12 +85,11 @@
 		2857C4D226971B3A00856AA5 /* EmotionalBombs */ = {
 			isa = PBXGroup;
 			children = (
+				17C2299426B96DEB008EEBFD /* Resources */,
 				C1AE9BA326B1858B00A34C32 /* Extensions */,
 				2824C45126973AC0002C70EB /* Model */,
 				2857C4EB269731C400856AA5 /* View */,
 				2857C4EA269731A000856AA5 /* Controller */,
-				2857C4D326971B3A00856AA5 /* AppDelegate.swift */,
-				C19FBC3E26B44A7C00832C16 /* araraflyng.gif */,
 				2857C4E026971B3B00856AA5 /* Assets.xcassets */,
 				2857C4E226971B3B00856AA5 /* Info.plist */,
 			);
@@ -91,8 +99,8 @@
 		2857C4EA269731A000856AA5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2857C4D326971B3A00856AA5 /* AppDelegate.swift */,
 				2857C4DB26971B3A00856AA5 /* GameViewController.swift */,
-				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
 				2857C4D926971B3A00856AA5 /* GameScene.swift */,
 				2843619226AEE6BE007B00DA /* DragController.swift */,
 			);
