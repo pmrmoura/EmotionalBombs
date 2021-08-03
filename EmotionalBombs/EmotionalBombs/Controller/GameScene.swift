@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var birdFlew = false
     var sawFirstPuzzle = false
     var puzzleSolved = false
+    var jumping = false
     
     var controllerDelegate: GameSceneDelegate?
     
@@ -47,7 +48,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let camera = self.scene?.childNode(withName: "camera") as? SKCameraNode{
             self.camera = camera
         }
-        
     }
   
     
@@ -63,7 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } catch{
             print(" deu pau no audio")
         }
-//
+
         print("entrou no begin do contatooo")
         if contact.bodyA.node?.name == "luz" || contact.bodyA.node?.name == "player"  {
            if contact.bodyB.node?.name == "luz" || contact.bodyB.node?.name == "player" {
@@ -72,14 +72,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if let luzNode = self.childNode(withName: "luz") {
                     self.audioPlayer?.play()
                     luzNode.run(SKAction.sequence([scaleLightMemory,fadeOutLightMemory]), completion: {
-                        luzNode.removeFromParent()
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                            luzNode.removeFromParent()
+                        }
                     })
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                         self.controllerDelegate?.navigateToDragView()
                     }
                 }
-            
             }
         }
     }
@@ -119,8 +120,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.camera?.position.y = (player.body?.position.y)! + 350
         }
         
-//        print((player.body?.position.x)!)
-        
         if goingLeft && (player.body?.position.x)! <= 100 {
             player.stopMove()
         }
@@ -132,7 +131,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.camera?.run(zoomOut)
             sawFirstPuzzle = true
         }
-        
     }
 }
 
@@ -152,16 +150,13 @@ extension GameScene{
                 spinning.append(texture)
             }
             
-            let memoryLightSpinning = SKAction.animate(with: spinning, timePerFrame: 0.1, resize: false, restore: false)
+            let memoryLightSpinning = SKAction.animate(with: spinning, timePerFrame: 0.1, resize: false, restore: true)
             node.run(SKAction.setTexture(SKTexture(imageNamed: "MemoriaGaia_00000"),resize: false))
             node.run(SKAction.repeatForever(memoryLightSpinning), withKey: "spinningForever")
         }
     }
     
-    
-
-    
-    
+  
     func sawBirdOnScreen(){
         
         if let node = self.scene?.childNode(withName: "bird"){
@@ -217,7 +212,7 @@ extension GameScene{
                 self.player.body?.alpha = 0.0
                 
                 node.run(SKAction.setTexture(SKTexture(imageNamed: "Arara_Personagem_Animar_00000"),resize: true))
-                let moveToOtherSide = SKAction.move(to: CGPoint(x: 4160, y: 820), duration: 3.0)
+                let moveToOtherSide = SKAction.move(to: CGPoint(x: 5000, y: 820), duration: 4.0)
                 let animateFly = SKAction.animate(with: flying2getherToLight, timePerFrame: 0.1)
                 
                 node.run(SKAction.repeatForever(animateFly),withKey: "flying")
@@ -241,13 +236,10 @@ extension GameScene{
                     self.camera?.run(zoomIn)
                     self.player.body?.physicsBody?.affectedByGravity = true
                     self.player.body?.physicsBody?.isDynamic = true
-
-            
                     
-                    self.player.body?.position.x = 4265
+                    self.player.body?.position.x = 5000
                     self.player.body?.position.y = 800
                     self.player.body?.alpha = 1.0
-                    
                     
                     self.memoryLightAnimation()
    
@@ -296,14 +288,18 @@ extension GameScene{
         }else if direction == .left{
             player.body?.xScale = abs(player.body!.xScale) * -1.0
             if (player.body?.position.x)! >= 100 {
-                print("Move to the left", player.body?.position.x)
+                print("Move to the left", player.body?.position.x as Any)
                 player.moveTo(direction: .left)
                 goingLeft = true
                 
             }
-        }else if direction == .up{
-            print("jump")
-            player.moveTo(direction: .up)
+        }else if direction == .up && !jumping{
+            jumping =  true
+            self.player.moveTo(direction: .up)
+            print("jumped")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+                self.jumping = false
+            }
         }
         
         if !jointHappened{
@@ -311,11 +307,7 @@ extension GameScene{
         }
         else if direction == .left || direction == .right {
             self.player.pushTheBoxAnimation()
-
         }
-    
-        
-        
     }
     
     public func stopMove(){
