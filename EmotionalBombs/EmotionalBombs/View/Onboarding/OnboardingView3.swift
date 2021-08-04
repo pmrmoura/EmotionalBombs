@@ -11,9 +11,11 @@ class OnboardingView3: UIView, ViewCode {
     lazy var title: UITextView = UITextView()
     lazy var backgroundImage = UIImageView()
     lazy var spiritSV = UIStackView()
+    lazy var treeBirdSV = UIStackView()
+    lazy var spiritView = UIView()
+    lazy var backgroundCutView = UIView()
     lazy var spiritImageView: UIImageView = UIImageView()
-    lazy var spiritEyeView: UIView = UIView()
-    lazy var spiritEyeIV: UIImageView = UIImageView()
+    lazy var backgroundCut: UIImageView = UIImageView()
     
     init() {
         super.init(frame: .zero)
@@ -29,11 +31,14 @@ class OnboardingView3: UIView, ViewCode {
         self.addSubview(backgroundImage)
         self.addSubview(title)
         self.addSubview(spiritSV)
+
+        self.spiritSV.addArrangedSubview(spiritView)
+        self.spiritSV.addArrangedSubview(treeBirdSV)
         
-        self.spiritEyeView.addSubview(spiritEyeIV)
-    
-        self.spiritSV.addArrangedSubview(spiritEyeView)
-        self.spiritSV.addArrangedSubview(spiritImageView)
+        self.treeBirdSV.addArrangedSubview(backgroundCutView)
+        
+        self.spiritView.addSubview(spiritImageView)
+        self.backgroundCutView.addSubview(backgroundCut)
     }
     
     func setupContraints() {
@@ -42,20 +47,23 @@ class OnboardingView3: UIView, ViewCode {
             self.title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80),
             self.title.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
             self.title.trailingAnchor.constraint(equalTo: self.centerXAnchor),
-            self.title.widthAnchor.constraint(equalToConstant: 200),
-            self.title.heightAnchor.constraint(equalToConstant: 80),
+            self.title.widthAnchor.constraint(equalToConstant: 30),
+            self.title.heightAnchor.constraint(equalToConstant: 120),
             
-            self.spiritSV.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 30),
-            self.spiritSV.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            self.spiritSV.widthAnchor.constraint(equalToConstant: 400),
+            self.spiritSV.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 100),
+            self.spiritSV.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            self.spiritSV.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.spiritSV.widthAnchor.constraint(equalTo: self.widthAnchor),
             
-            self.spiritImageView.widthAnchor.constraint(equalToConstant: 400),
+            self.treeBirdSV.widthAnchor.constraint(equalToConstant: 1000),
+            
+            self.spiritImageView.widthAnchor.constraint(equalToConstant: 900),
             self.spiritImageView.heightAnchor.constraint(equalToConstant: 800),
             
-            self.spiritEyeIV.widthAnchor.constraint(equalToConstant: 110),
-            self.spiritEyeIV.heightAnchor.constraint(equalToConstant: 35),
-            self.spiritEyeIV.centerXAnchor.constraint(equalTo: self.spiritEyeView.centerXAnchor, constant: -10),
-            self.spiritEyeIV.topAnchor.constraint(equalTo: self.spiritSV.topAnchor, constant: 100),
+            self.backgroundCut.widthAnchor.constraint(equalToConstant: 700),
+            self.backgroundCut.heightAnchor.constraint(equalToConstant: 900),
+            self.backgroundCut.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 50),
+            self.backgroundCut.topAnchor.constraint(equalTo: self.topAnchor, constant: -20),
             
             self.backgroundImage.heightAnchor.constraint(equalTo: self.heightAnchor),
             self.backgroundImage.widthAnchor.constraint(equalTo: self.widthAnchor),
@@ -66,34 +74,42 @@ class OnboardingView3: UIView, ViewCode {
     func setupAdditionalConfiguration() {
         self.backgroundColor = .clear
     
-        backgroundImage.image = UIImage(named: "FundoEscuro.png")
+        backgroundImage.image = UIImage(named: "FundoClaro.png")
         backgroundImage.contentMode =  .scaleAspectFill
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         
         self.title.translatesAutoresizingMaskIntoConstraints = false
-        let text: String = "Acorde, espírito do tempo".localized()
+        let text: String = "Agora Gaia, mãe da natureza lhe chama para explorar o mundo".localized()
         self.title.backgroundColor = .clear
         self.title.textColor = .white
         self.title.font = UIFont(name: "Poppins-SemiBold", size: 32)
         self.title.typeOn(string: text)
         
         self.spiritSV.translatesAutoresizingMaskIntoConstraints = false
-        self.spiritSV.axis = .vertical
-        self.spiritSV.bringSubviewToFront(spiritEyeView)
+        self.spiritSV.axis = .horizontal
+        
+        self.spiritView.translatesAutoresizingMaskIntoConstraints = false
         
         self.spiritImageView.translatesAutoresizingMaskIntoConstraints = false
-        self.spiritImageView.image = UIImage(named: "EspritoSemOlho")
+        self.spiritImageView.image = UIImage(named: "Gaia")
         
-        self.spiritEyeIV.translatesAutoresizingMaskIntoConstraints = false
-        self.spiritEyeIV.image = UIImage(named: "olhos")
+        self.backgroundCut.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundCutView.translatesAutoresizingMaskIntoConstraints = false
 
-        self.spiritEyeView.alpha = 0
-        self.spiritEyeView.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundCut.image = UIImage(named: "CenarioCortado")
+        
+        self.treeBirdSV.axis = .vertical
+        self.treeBirdSV.translatesAutoresizingMaskIntoConstraints = false
         
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
-                self.spiritEyeView.alpha = 1
-            }, completion: nil)
+            UIView.animate(withDuration: 3.0, delay: 3.0, options: .curveEaseIn, animations: {
+                
+            }, completion: {_ in
+                UIView.animate(withDuration: 5.0, delay: 0, options: .curveEaseIn, animations: {
+//                    self.araraImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -200).isActive = true
+//                    self.layoutIfNeeded()
+                }, completion: nil)
+            })
         }
     }
 }

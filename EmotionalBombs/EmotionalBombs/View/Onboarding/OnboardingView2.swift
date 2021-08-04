@@ -14,8 +14,10 @@ class OnboardingView2: UIView, ViewCode {
     lazy var treeBirdSV = UIStackView()
     lazy var spiritView = UIView()
     lazy var treeView = UIView()
+    lazy var birdView = UIView()
     lazy var spiritImageView: UIImageView = UIImageView()
     lazy var treeImageView: UIImageView = UIImageView()
+    lazy var araraImageView: UIImageView = UIImageView()
     
     init() {
         super.init(frame: .zero)
@@ -36,9 +38,11 @@ class OnboardingView2: UIView, ViewCode {
         self.spiritSV.addArrangedSubview(treeBirdSV)
 
         self.treeBirdSV.addArrangedSubview(treeView)
+        self.treeBirdSV.addArrangedSubview(birdView)
         
         self.spiritView.addSubview(spiritImageView)
         self.treeView.addSubview(treeImageView)
+        self.birdView.addSubview(araraImageView)
     }
     
     func setupContraints() {
@@ -61,6 +65,9 @@ class OnboardingView2: UIView, ViewCode {
             self.treeImageView.heightAnchor.constraint(equalToConstant: 600),
             self.treeImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 430),
             self.treeImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            self.araraImageView.widthAnchor.constraint(equalToConstant: 1000),
+            self.araraImageView.heightAnchor.constraint(equalToConstant: 600),
             
             self.spiritImageView.widthAnchor.constraint(equalToConstant: 400),
             self.spiritImageView.heightAnchor.constraint(equalToConstant: 800),
@@ -93,15 +100,28 @@ class OnboardingView2: UIView, ViewCode {
         self.spiritImageView.translatesAutoresizingMaskIntoConstraints = false
         self.spiritImageView.image = UIImage(named: "EspiritoNormal")
         
+        self.treeBirdSV.axis = .vertical
         self.treeBirdSV.translatesAutoresizingMaskIntoConstraints = false
         self.treeView.translatesAutoresizingMaskIntoConstraints = false
         self.treeImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.araraImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.treeBirdSV.bringSubviewToFront(self.treeView)
+        
         self.treeImageView.image = UIImage(named: "Arvores")
         
+        let url = Bundle.main.url(forResource: "araravoando", withExtension: "gif")!
+        self.araraImageView.image = UIImage.gifImageWithURL(url)
+        
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
-//                self.spiritEyeView.alpha = 1
-            }, completion: nil)
+            UIView.animate(withDuration: 3.0, delay: 3.0, options: .curveEaseIn, animations: {
+                
+            }, completion: {_ in
+                UIView.animate(withDuration: 5.0, delay: 0, options: .curveEaseIn, animations: {
+                    self.araraImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -200).isActive = true
+                    self.layoutIfNeeded()
+                }, completion: nil)
+            })
         }
     }
 }
