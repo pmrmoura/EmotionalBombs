@@ -92,22 +92,23 @@ class OnboardingView3: UIView, ViewCode {
         
         self.spiritImageView.translatesAutoresizingMaskIntoConstraints = false
         self.spiritImageView.image = UIImage(named: "Gaia")
+        self.spiritImageView.alpha = 0
         
         self.backgroundCut.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundCutView.translatesAutoresizingMaskIntoConstraints = false
 
         self.backgroundCut.image = UIImage(named: "CenarioCortado")
+        self.backgroundCut.alpha = 0
         
         self.treeBirdSV.axis = .vertical
         self.treeBirdSV.translatesAutoresizingMaskIntoConstraints = false
         
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 3.0, delay: 3.0, options: .curveEaseIn, animations: {
-                
+            UIView.animate(withDuration: 2.0, delay: 1.5, options: .curveEaseIn, animations: {
+                self.spiritImageView.alpha = 1
             }, completion: {_ in
-                UIView.animate(withDuration: 5.0, delay: 0, options: .curveEaseIn, animations: {
-//                    self.araraImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -200).isActive = true
-//                    self.layoutIfNeeded()
+                UIView.animate(withDuration: 2.0, delay: 1.0, options: .curveEaseIn, animations: {
+                    self.backgroundCut.alpha = 1
                 }, completion: nil)
             })
         }

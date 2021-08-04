@@ -24,6 +24,7 @@
 		C19B0A2126BABE7D0043F1F2 /* OnboardingView5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B0A2026BABE7D0043F1F2 /* OnboardingView5.swift */; };
 		C19B0A2426BACF340043F1F2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C19B0A2626BACF340043F1F2 /* Localizable.strings */; };
 		C19FBC3F26B44A7C00832C16 /* araraflyng.gif in Resources */ = {isa = PBXBuildFile; fileRef = C19FBC3E26B44A7C00832C16 /* araraflyng.gif */; };
+		C1B9532926BAD31A00C3C9E3 /* effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1B9532826BAD31A00C3C9E3 /* effect.mp3 */; };
 		C1E0D0DE26B827200085C69D /* UImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0D0DD26B827200085C69D /* UImage+GIF.swift */; };
 		C1E0D0E626B979180085C69D /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1E0D0E526B979180085C69D /* Poppins-SemiBold.ttf */; };
 		C1E0D0E926B97F940085C69D /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0D0E826B97F940085C69D /* OnboardingView2.swift */; };
@@ -53,6 +54,7 @@
 		C19B0A2726BACF380043F1F2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C19FBC3E26B44A7C00832C16 /* araraflyng.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = araraflyng.gif; sourceTree = "<group>"; };
 		C1AE9BA426B1859900A34C32 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
+		C1B9532826BAD31A00C3C9E3 /* effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = effect.mp3; sourceTree = "<group>"; };
 		C1E0D0D826B81D430085C69D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C1E0D0DA26B825AB0085C69D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C1E0D0DD26B827200085C69D /* UImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+GIF.swift"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		2857C4EA269731A000856AA5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C1B9532826BAD31A00C3C9E3 /* effect.mp3 */,
 				2857C4DB26971B3A00856AA5 /* GameViewController.swift */,
 				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
 				2857C4D926971B3A00856AA5 /* GameScene.swift */,
@@ -248,6 +251,7 @@
 				1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */,
 				C19FBC3F26B44A7C00832C16 /* araraflyng.gif in Resources */,
 				C1E0D0E626B979180085C69D /* Poppins-SemiBold.ttf in Resources */,
+				C1B9532926BAD31A00C3C9E3 /* effect.mp3 in Resources */,
 				2857C4E126971B3B00856AA5 /* Assets.xcassets in Resources */,
 				C19B0A2426BACF340043F1F2 /* Localizable.strings in Resources */,
 				C19B0A1F26BAB5910043F1F2 /* araravoando.gif in Resources */,
@@ -416,13 +420,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QC8C374PG;
+				DEVELOPMENT_TEAM = MWUZ9DKMH6;
 				INFOPLIST_FILE = EmotionalBombs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs.liviasoliveira;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -435,13 +440,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QC8C374PG;
+				DEVELOPMENT_TEAM = MWUZ9DKMH6;
 				INFOPLIST_FILE = EmotionalBombs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs.liviasoliveira;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;

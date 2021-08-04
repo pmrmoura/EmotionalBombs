@@ -35,6 +35,7 @@ class OnboardingViewController: UIViewController {
             lastView = nextView
             if characterIndex == viewArray.count {
                 timer.invalidate()
+                self.navigationController?.pushViewController(GameViewController(), animated: true)
             }
         }
     }

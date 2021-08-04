@@ -16,18 +16,19 @@
 		2857C4DA26971B3A00856AA5 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2857C4D926971B3A00856AA5 /* GameScene.swift */; };
 		2857C4DC26971B3A00856AA5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2857C4DB26971B3A00856AA5 /* GameViewController.swift */; };
 		2857C4E126971B3B00856AA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2857C4E026971B3B00856AA5 /* Assets.xcassets */; };
-<<<<<<< HEAD
 		C1297B1526AEE7EF004E4F47 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1297B1426AEE7EF004E4F47 /* OnboardingViewController.swift */; };
 		C1297B1826AEEA5A004E4F47 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1297B1726AEEA5A004E4F47 /* String.swift */; };
-		C1297B1B26AEEC01004E4F47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C1297B1D26AEEC01004E4F47 /* Localizable.strings */; };
 		C1297B2126AEEE6E004E4F47 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1297B2026AEEE6E004E4F47 /* OnboardingView.swift */; };
 		C1297B2426AEEECF004E4F47 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1297B2326AEEECF004E4F47 /* ViewCode.swift */; };
-		C1E0D0DB26B825AB0085C69D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1E0D0DA26B825AB0085C69D /* Launch Screen.storyboard */; };
-=======
+		C19B0A1F26BAB5910043F1F2 /* araravoando.gif in Resources */ = {isa = PBXBuildFile; fileRef = C19B0A1E26BAB5910043F1F2 /* araravoando.gif */; };
+		C19B0A2126BABE7D0043F1F2 /* OnboardingView5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B0A2026BABE7D0043F1F2 /* OnboardingView5.swift */; };
+		C19B0A2426BACF340043F1F2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C19B0A2626BACF340043F1F2 /* Localizable.strings */; };
 		C19FBC3F26B44A7C00832C16 /* araraflyng.gif in Resources */ = {isa = PBXBuildFile; fileRef = C19FBC3E26B44A7C00832C16 /* araraflyng.gif */; };
-		C1AE9BA526B1859900A34C32 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AE9BA426B1859900A34C32 /* UIImage+GIF.swift */; };
-		C1E0D0D926B81D430085C69D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1E0D0D826B81D430085C69D /* Launch Screen.storyboard */; };
->>>>>>> 5a8e3211dea65cec715e2874077f485825b7747d
+		C1E0D0DE26B827200085C69D /* UImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0D0DD26B827200085C69D /* UImage+GIF.swift */; };
+		C1E0D0E626B979180085C69D /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1E0D0E526B979180085C69D /* Poppins-SemiBold.ttf */; };
+		C1E0D0E926B97F940085C69D /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0D0E826B97F940085C69D /* OnboardingView2.swift */; };
+		C1E0D0EB26B97FDA0085C69D /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0D0EA26B97FDA0085C69D /* OnboardingView3.swift */; };
+		C1E0D0ED26B97FE40085C69D /* OnboardingView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0D0EC26B97FE40085C69D /* OnboardingView4.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,19 +43,23 @@
 		2857C4DB26971B3A00856AA5 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2857C4E026971B3B00856AA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2857C4E226971B3B00856AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		C1297B1426AEE7EF004E4F47 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		C1297B1726AEEA5A004E4F47 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		C1297B1C26AEEC01004E4F47 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		C1297B1F26AEECCE004E4F47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1297B2026AEEE6E004E4F47 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C1297B2326AEEECF004E4F47 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
-		C1E0D0DA26B825AB0085C69D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-=======
+		C19B0A1E26BAB5910043F1F2 /* araravoando.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = araravoando.gif; sourceTree = "<group>"; };
+		C19B0A2026BABE7D0043F1F2 /* OnboardingView5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView5.swift; sourceTree = "<group>"; };
+		C19B0A2526BACF340043F1F2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C19B0A2726BACF380043F1F2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C19FBC3E26B44A7C00832C16 /* araraflyng.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = araraflyng.gif; sourceTree = "<group>"; };
 		C1AE9BA426B1859900A34C32 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
 		C1E0D0D826B81D430085C69D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
->>>>>>> 5a8e3211dea65cec715e2874077f485825b7747d
+		C1E0D0DA26B825AB0085C69D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		C1E0D0DD26B827200085C69D /* UImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+GIF.swift"; sourceTree = "<group>"; };
+		C1E0D0E526B979180085C69D /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		C1E0D0E826B97F940085C69D /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
+		C1E0D0EA26B97FDA0085C69D /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
+		C1E0D0EC26B97FE40085C69D /* OnboardingView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView4.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17C2299426B96DEB008EEBFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
+				C19FBC3E26B44A7C00832C16 /* araraflyng.gif */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		2824C45126973AC0002C70EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +95,7 @@
 			children = (
 				2857C4D226971B3A00856AA5 /* EmotionalBombs */,
 				2857C4D126971B3A00856AA5 /* Products */,
+				C1E0D0DC26B826880085C69D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,17 +111,20 @@
 			isa = PBXGroup;
 			children = (
 <<<<<<< HEAD
+				C1E0D0DF26B976160085C69D /* SupportFiles */,
 				C1297B2226AEEEC4004E4F47 /* Protocol */,
 				C1297B1626AEEA4E004E4F47 /* Extensions */,
-=======
-				C1AE9BA326B1858B00A34C32 /* Extensions */,
->>>>>>> 5a8e3211dea65cec715e2874077f485825b7747d
 				2824C45126973AC0002C70EB /* Model */,
 				2857C4EB269731C400856AA5 /* View */,
 				2857C4EA269731A000856AA5 /* Controller */,
-				2857C4D326971B3A00856AA5 /* AppDelegate.swift */,
-				C19FBC3E26B44A7C00832C16 /* araraflyng.gif */,
+=======
+				17C2299426B96DEB008EEBFD /* Resources */,
+				C1AE9BA326B1858B00A34C32 /* Extensions */,
+				2824C45126973AC0002C70EB /* Model */,
+				2857C4EB269731C400856AA5 /* View */,
+				2857C4EA269731A000856AA5 /* Controller */,
 				2857C4E026971B3B00856AA5 /* Assets.xcassets */,
+>>>>>>> 11db3474690130f4b0deb5ebe4e6809eaac38d19
 				2857C4E226971B3B00856AA5 /* Info.plist */,
 			);
 			path = EmotionalBombs;
@@ -115,14 +133,11 @@
 		2857C4EA269731A000856AA5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2857C4D326971B3A00856AA5 /* AppDelegate.swift */,
 				2857C4DB26971B3A00856AA5 /* GameViewController.swift */,
-				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
 				2857C4D926971B3A00856AA5 /* GameScene.swift */,
-<<<<<<< HEAD
 				C1297B1426AEE7EF004E4F47 /* OnboardingViewController.swift */,
-=======
 				2843619226AEE6BE007B00DA /* DragController.swift */,
->>>>>>> 5a8e3211dea65cec715e2874077f485825b7747d
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -132,33 +147,21 @@
 			children = (
 				2857C4D726971B3A00856AA5 /* Actions.sks */,
 				2857C4D526971B3A00856AA5 /* GameScene.sks */,
-<<<<<<< HEAD
-				C1297B2026AEEE6E004E4F47 /* OnboardingView.swift */,
+				C1E0D0E726B97F840085C69D /* Onboarding */,
 				C1E0D0DA26B825AB0085C69D /* Launch Screen.storyboard */,
-=======
-				C1E0D0D826B81D430085C69D /* Launch Screen.storyboard */,
->>>>>>> 5a8e3211dea65cec715e2874077f485825b7747d
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		C1297B1626AEEA4E004E4F47 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				C1297B1726AEEA5A004E4F47 /* String.swift */,
-				C1297B1D26AEEC01004E4F47 /* Localizable.strings */,
-=======
-		C1AE9BA326B1858B00A34C32 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C1AE9BA426B1859900A34C32 /* UIImage+GIF.swift */,
->>>>>>> 5a8e3211dea65cec715e2874077f485825b7747d
+				C1E0D0DD26B827200085C69D /* UImage+GIF.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		C1297B2226AEEEC4004E4F47 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,8 +170,40 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-=======
->>>>>>> 5a8e3211dea65cec715e2874077f485825b7747d
+		C1E0D0DC26B826880085C69D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				C1AE9BA426B1859900A34C32 /* UIImage+GIF.swift */,
+				C1E0D0D826B81D430085C69D /* Launch Screen.storyboard */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		C1E0D0DF26B976160085C69D /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C19B0A1E26BAB5910043F1F2 /* araravoando.gif */,
+				2857C4D326971B3A00856AA5 /* AppDelegate.swift */,
+				C19FBC3E26B44A7C00832C16 /* araraflyng.gif */,
+				2857C4E026971B3B00856AA5 /* Assets.xcassets */,
+				C1E0D0E526B979180085C69D /* Poppins-SemiBold.ttf */,
+				C19B0A2626BACF340043F1F2 /* Localizable.strings */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		C1E0D0E726B97F840085C69D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C1297B2026AEEE6E004E4F47 /* OnboardingView.swift */,
+				C1E0D0E826B97F940085C69D /* OnboardingView2.swift */,
+				C1E0D0EA26B97FDA0085C69D /* OnboardingView3.swift */,
+				C1E0D0EC26B97FE40085C69D /* OnboardingView4.swift */,
+				C19B0A2026BABE7D0043F1F2 /* OnboardingView5.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -227,16 +262,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				C1E0D0DB26B825AB0085C69D /* Launch Screen.storyboard in Resources */,
-				C1297B1B26AEEC01004E4F47 /* Localizable.strings in Resources */,
-=======
-				C1E0D0D926B81D430085C69D /* Launch Screen.storyboard in Resources */,
->>>>>>> 5a8e3211dea65cec715e2874077f485825b7747d
 				2857C4D626971B3A00856AA5 /* GameScene.sks in Resources */,
 				1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */,
 				C19FBC3F26B44A7C00832C16 /* araraflyng.gif in Resources */,
+				C1E0D0E626B979180085C69D /* Poppins-SemiBold.ttf in Resources */,
 				2857C4E126971B3B00856AA5 /* Assets.xcassets in Resources */,
+				C19B0A2426BACF340043F1F2 /* Localizable.strings in Resources */,
+				C19B0A1F26BAB5910043F1F2 /* araravoando.gif in Resources */,
 				2857C4D826971B3A00856AA5 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,33 +283,34 @@
 				C1297B1826AEEA5A004E4F47 /* String.swift in Sources */,
 				2824C45326973B02002C70EB /* Player.swift in Sources */,
 				2843619326AEE6BE007B00DA /* DragController.swift in Sources */,
+				C1E0D0DE26B827200085C69D /* UImage+GIF.swift in Sources */,
 				2857C4DA26971B3A00856AA5 /* GameScene.swift in Sources */,
 				C1297B1526AEE7EF004E4F47 /* OnboardingViewController.swift in Sources */,
 				2857C4DC26971B3A00856AA5 /* GameViewController.swift in Sources */,
-				C1AE9BA526B1859900A34C32 /* UIImage+GIF.swift in Sources */,
 				2857C4D426971B3A00856AA5 /* AppDelegate.swift in Sources */,
 				C1297B2126AEEE6E004E4F47 /* OnboardingView.swift in Sources */,
+				C19B0A2126BABE7D0043F1F2 /* OnboardingView5.swift in Sources */,
+				C1E0D0EB26B97FDA0085C69D /* OnboardingView3.swift in Sources */,
 				C1297B2426AEEECF004E4F47 /* ViewCode.swift in Sources */,
+				C1E0D0E926B97F940085C69D /* OnboardingView2.swift in Sources */,
+				C1E0D0ED26B97FE40085C69D /* OnboardingView4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-<<<<<<< HEAD
 /* Begin PBXVariantGroup section */
-		C1297B1D26AEEC01004E4F47 /* Localizable.strings */ = {
+		C19B0A2626BACF340043F1F2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C1297B1C26AEEC01004E4F47 /* pt-BR */,
-				C1297B1F26AEECCE004E4F47 /* en */,
+				C19B0A2526BACF340043F1F2 /* en */,
+				C19B0A2726BACF380043F1F2 /* pt-BR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
-=======
->>>>>>> 5a8e3211dea65cec715e2874077f485825b7747d
 /* Begin XCBuildConfiguration section */
 		2857C4E326971B3B00856AA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -401,13 +434,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QC8C374PG;
+				DEVELOPMENT_TEAM = MWUZ9DKMH6;
 				INFOPLIST_FILE = EmotionalBombs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs.liviasoliveira;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -420,13 +454,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QC8C374PG;
+				DEVELOPMENT_TEAM = MWUZ9DKMH6;
 				INFOPLIST_FILE = EmotionalBombs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.EmotionalBombs.liviasoliveira;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;

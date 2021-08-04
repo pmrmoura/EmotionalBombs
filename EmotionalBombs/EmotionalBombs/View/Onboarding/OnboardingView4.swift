@@ -45,7 +45,7 @@ class OnboardingView4: UIView, ViewCode {
             self.title.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
             self.title.trailingAnchor.constraint(equalTo: self.centerXAnchor),
             self.title.widthAnchor.constraint(equalToConstant: 200),
-            self.title.heightAnchor.constraint(equalToConstant: 100),
+            self.title.heightAnchor.constraint(equalToConstant: 150),
             
             self.spiritSV.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 50),
             self.spiritSV.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -86,14 +86,20 @@ class OnboardingView4: UIView, ViewCode {
         
         self.memorieImageView.translatesAutoresizingMaskIntoConstraints = false
         self.memorieImageView.image = UIImage(named: "memoria")
+        self.memorieImageView.alpha = 0
         
         self.treeImageView.translatesAutoresizingMaskIntoConstraints = false
         self.treeImageView.image = UIImage(named: "OtaArvores")
+        self.treeImageView.alpha = 0
         
         DispatchQueue.main.async {
             UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseIn, animations: {
-//                self.spiritEyeView.alpha = 1
-            }, completion: nil)
+                self.memorieImageView.alpha = 1
+            }, completion: {_ in 
+                UIView.animate(withDuration: 2.0, animations: {
+                    self.treeImageView.alpha = 1
+                })
+            })
         }
     }
 }

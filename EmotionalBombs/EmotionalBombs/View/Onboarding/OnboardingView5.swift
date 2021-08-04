@@ -67,17 +67,19 @@ class OnboardingView5: UIView, ViewCode {
         self.title.backgroundColor = .clear
         self.title.textColor = UIColor(named: "TitleColor")
         self.title.font = UIFont(name: "Poppins-SemiBold", size: 32)
+        self.title.alpha = 0
         
         self.spiritSV.translatesAutoresizingMaskIntoConstraints = false
         self.spiritSV.axis = .vertical
         
         self.spiritImageView.translatesAutoresizingMaskIntoConstraints = false
         self.spiritImageView.image = UIImage(named: "EstrelaFinal")
+        self.spiritImageView.alpha = 0
         
         DispatchQueue.main.async {
             UIView.animate(withDuration: 5.0, delay: 2.0, options: .curveEaseIn, animations: {
-                self.spiritImageView.widthAnchor.constraint(equalToConstant: 800).isActive = true
-                self.spiritImageView.heightAnchor.constraint(equalToConstant: 800).isActive = true
+                self.title.alpha = 1
+                self.spiritImageView.alpha = 1
             }, completion: nil)
         }
     }
