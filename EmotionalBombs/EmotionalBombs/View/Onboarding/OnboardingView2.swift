@@ -89,7 +89,7 @@ class OnboardingView2: UIView, ViewCode {
         let text: String = "Descubra uma vida secreta por trás da alma da natureza".localized()
         self.title.backgroundColor = .clear
         self.title.textColor = .white
-        self.title.font = UIFont(name: "Poppins-SemiBold", size: 32)
+        self.title.font = UIFont(name: "Poppins-SemiBold", size: 27)
         self.title.typeOn(string: text)
         
         self.spiritSV.translatesAutoresizingMaskIntoConstraints = false

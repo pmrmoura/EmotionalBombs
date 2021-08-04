@@ -42,7 +42,7 @@ class OnboardingView4: UIView, ViewCode {
         NSLayoutConstraint.activate([
             
             self.title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 80),
-            self.title.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
+            self.title.topAnchor.constraint(equalTo: self.topAnchor, constant: 105),
             self.title.trailingAnchor.constraint(equalTo: self.centerXAnchor),
             self.title.widthAnchor.constraint(equalToConstant: 200),
             self.title.heightAnchor.constraint(equalToConstant: 150),
@@ -78,7 +78,7 @@ class OnboardingView4: UIView, ViewCode {
         let text: String = "Recupere as memórias da conexão afetiva entre todos os seres vivos".localized()
         self.title.backgroundColor = .clear
         self.title.textColor = .white
-        self.title.font = UIFont(name: "Poppins-SemiBold", size: 32)
+        self.title.font = UIFont(name: "Poppins-SemiBold", size: 27)
         self.title.typeOn(string: text)
         
         self.spiritSV.translatesAutoresizingMaskIntoConstraints = false

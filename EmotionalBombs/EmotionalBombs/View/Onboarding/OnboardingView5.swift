@@ -66,7 +66,7 @@ class OnboardingView5: UIView, ViewCode {
         self.title.text = text
         self.title.backgroundColor = .clear
         self.title.textColor = UIColor(named: "TitleColor")
-        self.title.font = UIFont(name: "Poppins-SemiBold", size: 32)
+        self.title.font = UIFont(name: "Poppins-SemiBold", size: 27)
         self.title.alpha = 0
         
         self.spiritSV.translatesAutoresizingMaskIntoConstraints = false

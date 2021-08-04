@@ -17,8 +17,10 @@ class OnboardingView: UIView, ViewCode {
     
     init() {
         super.init(frame: .zero)
+//        super.init(frame: UIScreen.main.bounds)
         self.setupView()
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -74,7 +76,7 @@ class OnboardingView: UIView, ViewCode {
         let text: String = "Acorde, espírito do tempo".localized()
         self.title.backgroundColor = .clear
         self.title.textColor = .white
-        self.title.font = UIFont(name: "Poppins-SemiBold", size: 32)
+        self.title.font = UIFont(name: "Poppins-SemiBold", size: 27)
         self.title.typeOn(string: text)
         
         self.spiritSV.translatesAutoresizingMaskIntoConstraints = false

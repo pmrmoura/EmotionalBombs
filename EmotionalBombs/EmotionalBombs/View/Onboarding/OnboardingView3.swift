@@ -57,11 +57,11 @@ class OnboardingView3: UIView, ViewCode {
             
             self.treeBirdSV.widthAnchor.constraint(equalToConstant: 1000),
             
-            self.spiritImageView.widthAnchor.constraint(equalToConstant: 900),
-            self.spiritImageView.heightAnchor.constraint(equalToConstant: 800),
+            self.spiritImageView.widthAnchor.constraint(equalToConstant: 800),
+            self.spiritImageView.heightAnchor.constraint(equalToConstant: 700),
             
-            self.backgroundCut.widthAnchor.constraint(equalToConstant: 700),
-            self.backgroundCut.heightAnchor.constraint(equalToConstant: 900),
+            self.backgroundCut.widthAnchor.constraint(equalToConstant: 600),
+            self.backgroundCut.heightAnchor.constraint(equalToConstant: 800),
             self.backgroundCut.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 50),
             self.backgroundCut.topAnchor.constraint(equalTo: self.topAnchor, constant: -20),
             
@@ -79,10 +79,10 @@ class OnboardingView3: UIView, ViewCode {
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         
         self.title.translatesAutoresizingMaskIntoConstraints = false
-        let text: String = "Agora Gaia, mãe da natureza lhe chama para explorar o mundo".localized()
+        let text: String = "Agora Gaia, mãe da natureza, lhe chama para explorar o mundo".localized()
         self.title.backgroundColor = .clear
         self.title.textColor = .white
-        self.title.font = UIFont(name: "Poppins-SemiBold", size: 32)
+        self.title.font = UIFont(name: "Poppins-SemiBold", size: 27)
         self.title.typeOn(string: text)
         
         self.spiritSV.translatesAutoresizingMaskIntoConstraints = false
