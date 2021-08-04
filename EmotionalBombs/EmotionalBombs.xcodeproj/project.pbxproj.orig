@@ -24,7 +24,6 @@
 		C19B0A2126BABE7D0043F1F2 /* OnboardingView5.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19B0A2026BABE7D0043F1F2 /* OnboardingView5.swift */; };
 		C19B0A2426BACF340043F1F2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C19B0A2626BACF340043F1F2 /* Localizable.strings */; };
 		C19FBC3F26B44A7C00832C16 /* araraflyng.gif in Resources */ = {isa = PBXBuildFile; fileRef = C19FBC3E26B44A7C00832C16 /* araraflyng.gif */; };
-		C1B9532926BAD31A00C3C9E3 /* effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1B9532826BAD31A00C3C9E3 /* effect.mp3 */; };
 		C1E0D0DE26B827200085C69D /* UImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0D0DD26B827200085C69D /* UImage+GIF.swift */; };
 		C1E0D0E626B979180085C69D /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1E0D0E526B979180085C69D /* Poppins-SemiBold.ttf */; };
 		C1E0D0E926B97F940085C69D /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E0D0E826B97F940085C69D /* OnboardingView2.swift */; };
@@ -54,7 +53,6 @@
 		C19B0A2726BACF380043F1F2 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C19FBC3E26B44A7C00832C16 /* araraflyng.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = araraflyng.gif; sourceTree = "<group>"; };
 		C1AE9BA426B1859900A34C32 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
-		C1B9532826BAD31A00C3C9E3 /* effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = effect.mp3; sourceTree = "<group>"; };
 		C1E0D0D826B81D430085C69D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C1E0D0DA26B825AB0085C69D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C1E0D0DD26B827200085C69D /* UImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UImage+GIF.swift"; sourceTree = "<group>"; };
@@ -75,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17C2299426B96DEB008EEBFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
+				C19FBC3E26B44A7C00832C16 /* araraflyng.gif */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		2824C45126973AC0002C70EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +110,21 @@
 		2857C4D226971B3A00856AA5 /* EmotionalBombs */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				C1E0D0DF26B976160085C69D /* SupportFiles */,
 				C1297B2226AEEEC4004E4F47 /* Protocol */,
 				C1297B1626AEEA4E004E4F47 /* Extensions */,
 				2824C45126973AC0002C70EB /* Model */,
 				2857C4EB269731C400856AA5 /* View */,
 				2857C4EA269731A000856AA5 /* Controller */,
+=======
+				17C2299426B96DEB008EEBFD /* Resources */,
+				C1AE9BA326B1858B00A34C32 /* Extensions */,
+				2824C45126973AC0002C70EB /* Model */,
+				2857C4EB269731C400856AA5 /* View */,
+				2857C4EA269731A000856AA5 /* Controller */,
+				2857C4E026971B3B00856AA5 /* Assets.xcassets */,
+>>>>>>> 11db3474690130f4b0deb5ebe4e6809eaac38d19
 				2857C4E226971B3B00856AA5 /* Info.plist */,
 			);
 			path = EmotionalBombs;
@@ -117,9 +133,8 @@
 		2857C4EA269731A000856AA5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C1B9532826BAD31A00C3C9E3 /* effect.mp3 */,
+				2857C4D326971B3A00856AA5 /* AppDelegate.swift */,
 				2857C4DB26971B3A00856AA5 /* GameViewController.swift */,
-				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
 				2857C4D926971B3A00856AA5 /* GameScene.swift */,
 				C1297B1426AEE7EF004E4F47 /* OnboardingViewController.swift */,
 				2843619226AEE6BE007B00DA /* DragController.swift */,
@@ -251,7 +266,6 @@
 				1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */,
 				C19FBC3F26B44A7C00832C16 /* araraflyng.gif in Resources */,
 				C1E0D0E626B979180085C69D /* Poppins-SemiBold.ttf in Resources */,
-				C1B9532926BAD31A00C3C9E3 /* effect.mp3 in Resources */,
 				2857C4E126971B3B00856AA5 /* Assets.xcassets in Resources */,
 				C19B0A2426BACF340043F1F2 /* Localizable.strings in Resources */,
 				C19B0A1F26BAB5910043F1F2 /* araravoando.gif in Resources */,
