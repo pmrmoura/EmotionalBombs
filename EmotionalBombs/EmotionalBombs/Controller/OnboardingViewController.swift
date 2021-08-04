@@ -28,12 +28,16 @@ class OnboardingViewController: UIViewController {
                     lastView.removeFromSuperview()
                 })
             }
-            let nextView:UIView = viewArray[characterIndex].init() as UIView
-            nextView.frame = UIScreen.main.bounds
-            self.view.addSubview(nextView)
-            characterIndex += 1
-            lastView = nextView
-            if characterIndex == viewArray.count {
+            if characterIndex < viewArray.count {
+                let nextView:UIView = viewArray[characterIndex].init() as UIView
+                nextView.frame = UIScreen.main.bounds
+                self.view.addSubview(nextView)
+                characterIndex += 1
+                lastView = nextView
+            } else {
+                characterIndex += 1
+            }
+            if characterIndex == viewArray.count + 1{
                 timer.invalidate()
                 self.navigationController?.pushViewController(GameViewController(), animated: true)
             }
