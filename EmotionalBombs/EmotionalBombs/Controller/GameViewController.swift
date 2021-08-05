@@ -15,7 +15,6 @@ protocol GameSceneDelegate {
 
 class GameViewController: UIViewController, GameSceneDelegate {
     func navigateToDragView() {
-
         self.navigationController?.pushViewController(DragController(), animated: true)
     }
     

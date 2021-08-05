@@ -111,6 +111,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     })
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                        self.audioPlayer?.stop()
+                        self.audioPlayer2?.stop()
                         self.controllerDelegate?.navigateToDragView()
                     }
                 }
