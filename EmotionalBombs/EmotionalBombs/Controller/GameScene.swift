@@ -21,10 +21,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var jt: SKPhysicsJointLimit?
     var goingLeft = false
     private var audioPlayer: AVAudioPlayer?
+    private var audioPlayer2: AVAudioPlayer?
     var birdFlew = false
     var sawFirstPuzzle = false
     var puzzleSolved = false
     var jumping = false
+    var playedBackgroundSound = false
     
     var controllerDelegate: GameSceneDelegate?
     
@@ -44,30 +46,61 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player = Player(body: playerBody, walkingFrames: [])
         }
         player.buildAnimationWalkingRight()
-        
+    
         if let camera = self.scene?.childNode(withName: "camera") as? SKCameraNode{
             self.camera = camera
         }
+        
+        //build
+        audioBackground()
+        
+        if self.childNode(withName: "player") != nil{
+            print("entrou player existe")
+            if !playedBackgroundSound{
+                print("entrou player existe e tocou")
+                self.audioPlayer2?.play()
+                playedBackgroundSound = true
+            }
+        }
+        
+        
     }
-  
     
-    func didBegin(_ contact: SKPhysicsContact) {
-
+    fileprivate func audioBackground() {
+        let soundEffect2 = Bundle.main.path(forResource: "gameplayTestVolumeBaixo", ofType: "mp3")
+        let url2 = URL(fileURLWithPath: soundEffect2!)
+        audioPlayer2 = AVAudioPlayer()
+        
+        do {
+            audioPlayer2 = try AVAudioPlayer(contentsOf: url2)
+            audioPlayer2?.prepareToPlay()
+        } catch{
+            print(" deu pau no audio")
+        }
+    }
+    
+    fileprivate func audioTouchInTheMemory() {
         let soundEffect = Bundle.main.path(forResource: "effect", ofType: "mp3")
         let url = URL(fileURLWithPath: soundEffect!)
         audioPlayer = AVAudioPlayer()
-
+        
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
         } catch{
             print(" deu pau no audio")
         }
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+
+        //build
+        audioTouchInTheMemory()
 
         print("entrou no begin do contatooo")
         if contact.bodyA.node?.name == "luz" || contact.bodyA.node?.name == "player"  {
            if contact.bodyB.node?.name == "luz" || contact.bodyB.node?.name == "player" {
-                let scaleLightMemory = SKAction.scale(by: 1.8, duration: 1)
+                let scaleLightMemory = SKAction.scale(by: 1.3, duration: 1)
                 let fadeOutLightMemory = SKAction.fadeOut(withDuration:1)
                 if let luzNode = self.childNode(withName: "luz") {
                     self.audioPlayer?.play()
@@ -84,7 +117,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
-    
     
     func scrollBackground(){
         self.enumerateChildNodes(withName: "background", using: ({
@@ -133,6 +165,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 }
+
+
 
 
 //Player Moviment extension
