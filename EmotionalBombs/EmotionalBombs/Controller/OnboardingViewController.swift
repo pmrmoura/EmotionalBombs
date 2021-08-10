@@ -10,16 +10,35 @@ import AVFoundation
 
 class OnboardingViewController: UIViewController {
     
+    private var isOnboardingSeen: Bool!
+    
     private var audioPlayer: AVAudioPlayer?
+    
+    private var storageOnboarding = StorageOnboarding()
     
     override func loadView() {
         self.view = UIView()
     }
     
     override func viewDidLoad() {
-       viewChanges()
+        isOnboardingSeen = storageOnboarding.isOnboardingSeen()
+        showInitialScreen()
+       
     }
     
+    private func updateFlag(){
+        storageOnboarding.setOnboardingSeen()
+    }
+    
+    private func showInitialScreen(){
+        if !isOnboardingSeen {
+            viewChanges()
+            updateFlag()
+        }
+        else {
+            self.navigationController?.pushViewController(GameViewController(), animated: true)
+        }
+    }
     
     func viewChanges() {
         let viewArray = [OnboardingView.self, OnboardingView2.self, OnboardingView3.self, OnboardingView4.self, OnboardingView5.self]
@@ -61,7 +80,7 @@ class OnboardingViewController: UIViewController {
     }
    
     func audioBackground() {
-        let soundEffect = Bundle.main.path(forResource: "onboarding-song", ofType: "mp3")
+        let soundEffect = Bundle.main.path(forResource:"onboarding40seg-fadeout", ofType: "mp3")
         let url2 = URL(fileURLWithPath: soundEffect!)
         audioPlayer = AVAudioPlayer()
         

@@ -10,6 +10,8 @@
 		1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1708C81E26A9B23C00A28A1E /* effect.mp3 */; };
 		174FDC1626BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 174FDC1526BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 */; };
 		177BAF8126BAFA8D0060C7B3 /* onboarding-song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 177BAF8026BAFA8D0060C7B3 /* onboarding-song.mp3 */; };
+		17A6F9C526C2A0C200482D5F /* onboarding40seg-fadeout.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17A6F9C426C2A0C200482D5F /* onboarding40seg-fadeout.mp3 */; };
+		17A6F9C726C2A1CA00482D5F /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A6F9C626C2A1CA00482D5F /* OnboardingManager.swift */; };
 		2824C45326973B02002C70EB /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2824C45226973B02002C70EB /* Player.swift */; };
 		2843619326AEE6BE007B00DA /* DragController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2843619226AEE6BE007B00DA /* DragController.swift */; };
 		2857C4D426971B3A00856AA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2857C4D326971B3A00856AA5 /* AppDelegate.swift */; };
@@ -38,6 +40,8 @@
 		1708C81E26A9B23C00A28A1E /* effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = effect.mp3; sourceTree = "<group>"; };
 		174FDC1526BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameplayTestVolumeBaixo.mp3; sourceTree = "<group>"; };
 		177BAF8026BAFA8D0060C7B3 /* onboarding-song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "onboarding-song.mp3"; sourceTree = "<group>"; };
+		17A6F9C426C2A0C200482D5F /* onboarding40seg-fadeout.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding40seg-fadeout.mp3"; path = "../../../../../Desktop/EmotionalBombs/onboarding40seg-fadeout.mp3"; sourceTree = "<group>"; };
+		17A6F9C626C2A1CA00482D5F /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
 		2824C45226973B02002C70EB /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2843619226AEE6BE007B00DA /* DragController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragController.swift; sourceTree = "<group>"; };
 		2857C4D026971B3A00856AA5 /* EmotionalBombs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionalBombs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,7 @@
 				2857C4D926971B3A00856AA5 /* GameScene.swift */,
 				C1297B1426AEE7EF004E4F47 /* OnboardingViewController.swift */,
 				2843619226AEE6BE007B00DA /* DragController.swift */,
+				17A6F9C626C2A1CA00482D5F /* OnboardingManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				C19FBC3E26B44A7C00832C16 /* araraflyng.gif */,
 				2857C4E026971B3B00856AA5 /* Assets.xcassets */,
 				177BAF8026BAFA8D0060C7B3 /* onboarding-song.mp3 */,
+				17A6F9C426C2A0C200482D5F /* onboarding40seg-fadeout.mp3 */,
 				C1E0D0E526B979180085C69D /* Poppins-SemiBold.ttf */,
 				174FDC1526BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 */,
 				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
@@ -255,6 +261,7 @@
 				174FDC1626BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 in Resources */,
 				2857C4D626971B3A00856AA5 /* GameScene.sks in Resources */,
 				1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */,
+				17A6F9C526C2A0C200482D5F /* onboarding40seg-fadeout.mp3 in Resources */,
 				C19FBC3F26B44A7C00832C16 /* araraflyng.gif in Resources */,
 				C1E0D0E626B979180085C69D /* Poppins-SemiBold.ttf in Resources */,
 				2857C4E126971B3B00856AA5 /* Assets.xcassets in Resources */,
@@ -284,6 +291,7 @@
 				C19B0A2126BABE7D0043F1F2 /* OnboardingView5.swift in Sources */,
 				C1E0D0EB26B97FDA0085C69D /* OnboardingView3.swift in Sources */,
 				C1297B2426AEEECF004E4F47 /* ViewCode.swift in Sources */,
+				17A6F9C726C2A1CA00482D5F /* OnboardingManager.swift in Sources */,
 				C1E0D0E926B97F940085C69D /* OnboardingView2.swift in Sources */,
 				C1E0D0ED26B97FE40085C69D /* OnboardingView4.swift in Sources */,
 			);
