@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     fileprivate func audioBackground() {
-        let soundEffect2 = Bundle.main.path(forResource: "gameplayTestVolumeBaixo", ofType: "mp3")
+        let soundEffect2 = Bundle.main.path(forResource: "gameplayTeste", ofType: "mp3")
         let url2 = URL(fileURLWithPath: soundEffect2!)
         audioPlayer2 = AVAudioPlayer()
         
