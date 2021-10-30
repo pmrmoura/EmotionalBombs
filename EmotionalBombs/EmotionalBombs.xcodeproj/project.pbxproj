@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1708C81E26A9B23C00A28A1E /* effect.mp3 */; };
+		17257AE5271E3D2C00610F1D /* onboarding40seg-fadeout.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17257AE4271E3D2C00610F1D /* onboarding40seg-fadeout.mp3 */; };
 		174FDC1626BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 174FDC1526BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 */; };
 		177BAF8126BAFA8D0060C7B3 /* onboarding-song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 177BAF8026BAFA8D0060C7B3 /* onboarding-song.mp3 */; };
 		17A6F9C726C2A1CA00482D5F /* OnboardingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A6F9C626C2A1CA00482D5F /* OnboardingManager.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		1708C81E26A9B23C00A28A1E /* effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = effect.mp3; sourceTree = "<group>"; };
+		17257AE4271E3D2C00610F1D /* onboarding40seg-fadeout.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "onboarding40seg-fadeout.mp3"; sourceTree = "<group>"; };
 		174FDC1526BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameplayTestVolumeBaixo.mp3; sourceTree = "<group>"; };
 		177BAF8026BAFA8D0060C7B3 /* onboarding-song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "onboarding-song.mp3"; sourceTree = "<group>"; };
 		17A6F9C626C2A1CA00482D5F /* OnboardingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingManager.swift; sourceTree = "<group>"; };
@@ -177,11 +179,11 @@
 			children = (
 				C19B0A1E26BAB5910043F1F2 /* araravoando.gif */,
 				2857C4D326971B3A00856AA5 /* AppDelegate.swift */,
+				17257AE4271E3D2C00610F1D /* onboarding40seg-fadeout.mp3 */,
 				C19FBC3E26B44A7C00832C16 /* araraflyng.gif */,
 				28EA415426C2C69600F9C412 /* gameplayTeste.mp3 */,
 				2857C4E026971B3B00856AA5 /* Assets.xcassets */,
 				177BAF8026BAFA8D0060C7B3 /* onboarding-song.mp3 */,
-				28EA415226C2C30300F9C412 /* onboarding40seg-fadeout.mp3 */,
 				C1E0D0E526B979180085C69D /* Poppins-SemiBold.ttf */,
 				174FDC1526BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 */,
 				1708C81E26A9B23C00A28A1E /* effect.mp3 */,
@@ -264,7 +266,7 @@
 				174FDC1626BC5838006A0766 /* gameplayTestVolumeBaixo.mp3 in Resources */,
 				2857C4D626971B3A00856AA5 /* GameScene.sks in Resources */,
 				1708C81F26A9B23D00A28A1E /* effect.mp3 in Resources */,
-				28EA415326C2C30300F9C412 /* onboarding40seg-fadeout.mp3 in Resources */,
+				17257AE5271E3D2C00610F1D /* onboarding40seg-fadeout.mp3 in Resources */,
 				C19FBC3F26B44A7C00832C16 /* araraflyng.gif in Resources */,
 				C1E0D0E626B979180085C69D /* Poppins-SemiBold.ttf in Resources */,
 				28EA415526C2C69600F9C412 /* gameplayTeste.mp3 in Resources */,
@@ -439,7 +441,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = MWUZ9DKMH6;
+				DEVELOPMENT_TEAM = 2QC8C374PG;
 				INFOPLIST_FILE = EmotionalBombs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,7 +462,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_TEAM = MWUZ9DKMH6;
+				DEVELOPMENT_TEAM = 2QC8C374PG;
 				INFOPLIST_FILE = EmotionalBombs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
